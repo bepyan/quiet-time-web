@@ -79,4 +79,13 @@
 	span {
 		margin-right: 1rem;
 	}
+
+	@media (max-width: 720px) {
+		header {
+			padding: 1rem;
+		}
+		.bible {
+			padding: 2rem 0.5rem 2rem 0.5rem;
+		}
+	}
 </style>
