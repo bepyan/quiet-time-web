@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Navigation from '$lib/Navigation.svelte';
+	import Toast from '$lib/Toast.svelte';
 	import '../app.css';
 </script>
 
@@ -8,6 +9,7 @@
 </main>
 
 <Navigation />
+<Toast />
 
 <style>
 	main {

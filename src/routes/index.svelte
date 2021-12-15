@@ -4,13 +4,15 @@
 
 <script lang="ts">
 	import { contents } from '$lib/mockup';
+	import { onToast } from '../lib/Toast.svelte';
 
 	const copyToClipboard = async (val: string) => {
 		try {
 			await navigator.clipboard.writeText(val);
-			console.log('copy 완료');
+			onToast('클립보드에 복사 완료');
 		} catch (e) {
-			console.log('[오류] copy 실패');
+			onToast('[오류] 복사 실패');
+			console.log(e);
 		}
 	};
 </script>

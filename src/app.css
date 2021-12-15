@@ -151,3 +151,9 @@ textarea:focus {
 textarea::-webkit-scrollbar {
 	display: initial;
 }
+
+.show {
+	opacity: 1 !important;
+	visibility: visible !important;
+	transform: translate(-50%, 0) !important;
+}

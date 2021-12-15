@@ -4,7 +4,6 @@
 
 <script lang="ts">
 	import { contents } from '$lib/mockup';
-	import { text } from 'svelte/internal';
 </script>
 
 <svelte:head>

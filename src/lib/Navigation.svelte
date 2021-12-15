@@ -14,6 +14,7 @@
 
 <style>
 	nav {
+		pointer-events: none;
 		position: sticky;
 		display: flex;
 		justify-content: center;
@@ -22,6 +23,7 @@
 	}
 
 	ul {
+		pointer-events: auto;
 		position: relative;
 		padding: 0rem 1rem;
 		margin: 0;
