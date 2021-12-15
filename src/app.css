@@ -8,6 +8,7 @@
 	--accent-color: #ff3e00;
 	--heading-color: rgba(0, 0, 0, 0.7);
 	--text-color: #444444;
+	--grey: #E8E8E8;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
@@ -82,7 +83,7 @@ h5 {
 pre {
 	font-size: 16px;
 	font-family: "Nanum Myeongjo";
-	border-radius: 3px;
+	border-radius: 10px;
 	padding: 0.5em;
 	color: var(--text-color);
 	white-space: pre-wrap;
@@ -90,17 +91,63 @@ pre {
 }
 
 input,
+textarea,
 button {
 	font-size: inherit;
 	font-family: inherit;
 }
 
-button:focus:not(:focus-visible) {
+button {
+	color: var(--accent-color);
+	background-color: white;
+	border: 1px solid var(--accent-color);
+
+	cursor: pointer;
 	outline: none;
+	box-sizing: border-box;
+	border-radius: 10px;
+	font-weight: 600;
+	text-align: center;
+	transition: all 0.2s ease-in-out;
+
+	height: 40px;
+	padding: 0 11px;
+	min-width: 100px;
 }
+
+button:hover {
+	box-shadow: rgba(15, 15, 15, 0.1) 0px 5px 16px;
+}
+
+textarea {
+	resize: none;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 16px;
+	box-sizing: border-box;
+	border-color: var(--grey);
+	outline: none;
+	border-radius: 10px;
+	transition: border 0.3s ease-in-out;
+	width: 100%;
+}
+
+textarea:focus {
+	border-color: var(--accent-color);
+}
+
 
 @media (min-width: 720px) {
 	h1 {
 		font-size: 2.4rem;
 	}
+}
+
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+textarea::-webkit-scrollbar {
+	display: initial;
 }

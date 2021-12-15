@@ -11,7 +11,7 @@
 </svelte:head>
 
 <div class="content">
-	<h1>성경 묵상</h1>
+	<h1>설정</h1>
 
 	<section>
 		<p>
@@ -30,8 +30,6 @@
 	<section>
 		<p>미리보기</p>
 		<pre>
-			2021.12.15 (수)
-			욥기 34장 21절
 			그는 사람의 길을 주목하시며 사람의 모든 걸음을 감찰하시나니
 		</pre>
 	</section>
@@ -44,13 +42,30 @@
 		margin: var(--column-margin-top) auto 0 auto;
 		background-color: white;
 		padding: 3rem;
+		border-radius: 2rem;
+	}
+
+	h1 {
+		margin-top: 0px;
+		margin-bottom: 3rem;
 	}
 
 	section {
+		display: flex;
+		flex-direction: column;
 		margin-bottom: 4rem;
+	}
+
+	button {
+		margin-left: auto;
+	}
+
+	textarea {
+		margin: 1rem 0rem;
 	}
 
 	pre {
 		padding: 2rem;
+		border: 1px solid var(--grey);
 	}
 </style>
