@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<title>성경 묵상</title>
+	<title>성경묵상</title>
 </svelte:head>
 
 <section>
@@ -47,14 +47,15 @@
 		flex: 1;
 		flex-direction: column;
 		background-color: white;
+		margin-bottom: 10%;
 	}
 
 	header {
 		padding: 3rem;
+		border-bottom: 1px solid #eeeeee;
 	}
 
 	.bible {
-		border-top: 1px solid #eeeeee;
 		padding: 3rem;
 	}
 	.bible > :first-of-type {

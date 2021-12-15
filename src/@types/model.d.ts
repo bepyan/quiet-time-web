@@ -7,5 +7,6 @@ declare module '@types' {
             verse?: number
             text: string
         }[]
+        commentaries: string[]
     }
 }

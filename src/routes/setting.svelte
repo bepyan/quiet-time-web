@@ -1,44 +1,40 @@
 <script context="module">
 	import { browser, dev } from '$app/env';
 
-	// we don't need any JS on this page, though we'll load
-	// it in dev so that we get hot module replacement...
 	export const hydrate = dev;
-
-	// ...but if the client-side router is already loaded
-	// (i.e. we came here from elsewhere in the app), use it
 	export const router = browser;
-
-	// since there's no dynamic data here, we can prerender
-	// it so that it gets served as a static asset in prod
 	export const prerender = true;
 </script>
 
 <svelte:head>
-	<title>About</title>
+	<title>성경묵상 | 설정</title>
 </svelte:head>
 
 <div class="content">
-	<h1>About this app</h1>
+	<h1>성경 묵상</h1>
 
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
+	<section>
+		<p>
+			소스코드는
+			<a href="https://github.com/bepyan/quiet-time" target="_blank">Github</a>
+			에서 찾아 볼 수 있습니다.
+		</p>
+	</section>
 
-	<!-- TODO lose the @next! -->
-	<pre>npm init svelte@next</pre>
+	<section>
+		<p>클립보드 복사 형태</p>
+		<textarea />
+		<button>저장</button>
+	</section>
 
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>
-		The <a href="/todos">TODOs</a> page illustrates SvelteKit's data loading and form handling. Try using
-		it with JavaScript disabled!
-	</p>
+	<section>
+		<p>미리보기</p>
+		<pre>
+			2021.12.15 (수)
+			욥기 34장 21절
+			그는 사람의 길을 주목하시며 사람의 모든 걸음을 감찰하시나니
+		</pre>
+	</section>
 </div>
 
 <style>
@@ -46,5 +42,15 @@
 		width: 100%;
 		max-width: var(--column-width);
 		margin: var(--column-margin-top) auto 0 auto;
+		background-color: white;
+		padding: 3rem;
+	}
+
+	section {
+		margin-bottom: 4rem;
+	}
+
+	pre {
+		padding: 2rem;
 	}
 </style>
