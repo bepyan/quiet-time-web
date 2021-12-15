@@ -4,9 +4,11 @@
 
 <nav>
 	<ul>
-		<li class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">About</a></li>
-		<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-		<li class:active={$page.path === '/todos'}><a sveltekit:prefetch href="/todos">Todos</a></li>
+		<li class:active={$page.path === '/setting'}><a sveltekit:prefetch href="/setting">설정</a></li>
+		<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">묵상</a></li>
+		<li class:active={$page.path === '/commentary'}>
+			<a sveltekit:prefetch href="/commentary">해설</a>
+		</li>
 	</ul>
 </nav>
 
@@ -31,11 +33,14 @@
 		background: var(--background);
 		background-size: contain;
 		border-radius: 1rem;
+		box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 5px 10px,
+			rgba(15, 15, 15, 0.2) 0px 15px 40px;
 	}
 
 	li {
 		position: relative;
 		height: 100%;
+		transition: all 200ms ease-in-out;
 	}
 
 	li.active::before {
@@ -52,12 +57,12 @@
 
 	nav a {
 		display: flex;
-		height: 100%;
 		align-items: center;
-		padding: 0 1em;
+		height: 100%;
+		padding: 0 1rem;
 		color: var(--heading-color);
 		font-weight: 700;
-		font-size: 0.8rem;
+		font-size: 1rem;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		text-decoration: none;
