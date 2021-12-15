@@ -1,10 +1,13 @@
-<script context="module" lang="ts">
+<script context="module">
 	export const prerender = true;
 </script>
 
 <script lang="ts">
 	import { contents } from '$lib/mockup';
 	import { onToast } from '../lib/Toast.svelte';
+	import { onMount } from 'svelte';
+
+	onMount(async () => {});
 
 	const copyToClipboard = async (val: string) => {
 		try {
@@ -30,7 +33,7 @@
 	</header>
 
 	<div class="bible">
-		{#each contents.texts as { verse, text }}
+		{#each contents.verses as { verse, text }}
 			{#if !verse}
 				<h5>{text}</h5>
 			{:else}

@@ -3,10 +3,12 @@ declare module '@types' {
         title: string
         date: string
         range: string
-        texts: {
-            verse?: number
-            text: string
-        }[]
+        verses: Verse[]
         commentaries: string[]
+    }
+
+    interface Verse {
+        verse?: number
+        text: string
     }
 }
