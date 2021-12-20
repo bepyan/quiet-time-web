@@ -9,6 +9,22 @@
 
 <form class="card">
 	<header>
+		<h1>구독 조회</h1>
+	</header>
+
+	<section>
+		<label for="search_uname">
+			사용자 아이디
+			<div class="row">
+				<input name="search_uname" />
+				<button type="submit">조회하기</button>
+			</div>
+		</label>
+	</section>
+</form>
+
+<form class="card">
+	<header>
 		<h1>구독</h1>
 	</header>
 
@@ -16,13 +32,13 @@
 		<div>
 			<p class="label">QT 내용을 노션으로 구독 받으시고 싶으신가요?</p>
 			<p>
+				매일 오전 5시에
 				<a
 					target="_blank"
 					href="https://bepyan.notion.site/37-14-24-22cc532b12064a1d864c621260c82324"
 				>
-					구독 템플릿 보기
-				</a>
-				매일 오전 5시에 QT 본문, 해설을 신속 배송해줍니다.
+					QT 본문, 해설</a
+				>을 신속 배송해줍니다.
 			</p>
 		</div>
 	</section>
@@ -46,7 +62,15 @@
 	</section>
 </form>
 
-<style>
+<style lang="scss">
+	.row {
+		display: flex;
+		align-items: center;
+		& > * {
+			margin-right: 1rem;
+		}
+	}
+
 	.label {
 		margin-bottom: 0.5rem;
 	}

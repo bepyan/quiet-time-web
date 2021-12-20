@@ -53,9 +53,7 @@ p {
 	font-weight: 400;
 }
 
-label > input,
-textarea,
-pre {
+label > *{
 	margin-top: 0.5rem;
 }
 
@@ -136,11 +134,11 @@ textarea {
 	resize: none;
 	font-size: 16px;
 	font-weight: 400;
-	padding: 16px;
+	padding: 14px 16px;
 	box-sizing: border-box;
 	border: 1px solid var(--grey);
-	outline: none;
 	border-radius: 10px;
+	outline: none;
 	transition: border 0.3s ease-in-out;
 	width: 100%;
 }
