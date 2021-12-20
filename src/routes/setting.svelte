@@ -6,8 +6,10 @@
 	<title>성경묵상 | 설정</title>
 </svelte:head>
 
-<div class="content">
-	<h1>설정</h1>
+<div class="card">
+	<header>
+		<h1>설정</h1>
+	</header>
 
 	<section>
 		<p>
@@ -18,50 +20,25 @@
 	</section>
 
 	<section>
-		<p>클립보드 복사 형태</p>
-		<textarea />
+		<label for="text">
+			클립보드 복사 형태
+			<textarea id="text" />
+		</label>
 		<button>저장</button>
 	</section>
 
 	<section>
-		<p>미리보기</p>
-		<pre>
-			그는 사람의 길을 주목하시며 사람의 모든 걸음을 감찰하시나니
-		</pre>
+		<label for="pre">
+			미리보기
+			<pre>
+				그는 사람의 길을 주목하시며 사람의 모든 걸음을 감찰하시나니
+			</pre>
+		</label>
 	</section>
 </div>
 
 <style>
-	.content {
-		width: 100%;
-		max-width: var(--column-width);
-		margin: var(--column-margin-top) auto 0 auto;
-		background-color: white;
-		padding: 3rem;
-		border-radius: 2rem;
-	}
-
-	h1 {
-		margin-top: 0px;
-		margin-bottom: 3rem;
-	}
-
-	section {
-		display: flex;
-		flex-direction: column;
-		margin-bottom: 4rem;
-	}
-
 	button {
 		margin-left: auto;
-	}
-
-	textarea {
-		margin: 1rem 0rem;
-	}
-
-	pre {
-		padding: 2rem;
-		border: 1px solid var(--grey);
 	}
 </style>

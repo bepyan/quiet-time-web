@@ -46,13 +46,28 @@
 	</div>
 </section>
 
+<section>
+	<header>
+		<h1>본문해설</h1>
+	</header>
+	<div class="bible">
+		{#each contents.commentaries as text}
+			{#if text.length > 30}
+				<pre>{text}</pre>
+			{:else}
+				<h5>{text}</h5>
+			{/if}
+		{/each}
+	</div>
+</section>
+
 <style>
 	section {
 		display: flex;
 		flex: 1;
 		flex-direction: column;
 		background-color: white;
-		margin-bottom: 10%;
+		margin-bottom: 4rem;
 	}
 
 	header {
@@ -61,6 +76,7 @@
 	}
 
 	.bible {
+		margin-top: 1rem;
 		padding: 3rem;
 	}
 	.bible > :first-of-type {

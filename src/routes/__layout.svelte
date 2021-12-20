@@ -2,6 +2,7 @@
 	import Navigation from '$lib/Navigation.svelte';
 	import Toast from '$lib/Toast.svelte';
 	import '../app.css';
+	import '$lib/style.scss';
 </script>
 
 <main>

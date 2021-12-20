@@ -1,0 +1,27 @@
+.card {
+	width: 100%;
+	max-width: var(--column-width);
+	margin: var(--column-margin-top) auto 0 auto;
+	background-color: white;
+	padding: 3rem;
+	border-radius: 2rem;
+
+	& > header {
+		margin-bottom: 3rem;
+		h1 {
+			margin-top: 0rem;
+		}
+	}
+
+	& > section {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 4rem;
+		& > * {
+			margin-top: 0rem;
+		}
+		& > :not(:last-child) {
+			margin-bottom: 2rem;
+		}
+	}
+}

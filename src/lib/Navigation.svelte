@@ -6,8 +6,8 @@
 	<ul>
 		<li class:active={$page.path === '/setting'}><a sveltekit:prefetch href="/setting">설정</a></li>
 		<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">묵상</a></li>
-		<li class:active={$page.path === '/commentary'}>
-			<a sveltekit:prefetch href="/commentary">해설</a>
+		<li class:active={$page.path === '/subscription'}>
+			<a sveltekit:prefetch href="/subscription">구독</a>
 		</li>
 	</ul>
 </nav>
