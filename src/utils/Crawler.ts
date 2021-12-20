@@ -1,4 +1,4 @@
-import type { Content, Verse } from '@types';
+import type { QTContent, Verse } from '@types';
 import axios from 'axios';
 import cheerio, { CheerioAPI } from 'cheerio';
 import iconv from 'iconv-lite';
@@ -57,12 +57,12 @@ const parseCommentaries = ($: CheerioAPI) => {
 	return commentaries;
 };
 
-export const parseContent = async (): Promise<Content> => {
+export const parseContent = async (): Promise<QTContent> => {
 	const html = await getHTML('bible');
 	const data = decode(html.data);
 	const $ = cheerio.load(data);
 
-	const contents: Content = {
+	const contents: QTContent = {
 		title: $('h1 span').text().trim(),
 		range: $('h1 em').text().trim(),
 		date: new Date().getUTCDate().toString(),
