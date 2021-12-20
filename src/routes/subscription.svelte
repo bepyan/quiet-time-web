@@ -3,11 +3,24 @@
 	export const prerender = true;
 </script>
 
+<script lang="ts">
+	import { db } from '$lib/inedx';
+
+	let searchRes;
+
+	const onSearchSubsciption = async (e) => {
+		const name: string = e.target.search_uname.value;
+		const searchRes = await db.findUser({ name });
+	};
+
+	const onSubscript = (e) => {};
+</script>
+
 <svelte:head>
 	<title>성경묵상 | 해설</title>
 </svelte:head>
 
-<form class="card">
+<form class="card" on:submit|preventDefault={onSearchSubsciption}>
 	<header>
 		<h1>구독 조회</h1>
 	</header>
@@ -16,14 +29,14 @@
 		<label for="search_uname">
 			사용자 아이디
 			<div class="row">
-				<input name="search_uname" />
+				<input type="text" id="search_uname" />
 				<button type="submit">조회하기</button>
 			</div>
 		</label>
 	</section>
 </form>
 
-<form class="card">
+<form class="card" on:submit|preventDefault={onSubscript}>
 	<header>
 		<h1>구독</h1>
 	</header>
@@ -44,11 +57,11 @@
 	</section>
 
 	<section>
-		<label for="uname">사용자 아이디<input name="uname" /></label>
+		<label for="uname">사용자 아이디<input id="uname" /></label>
 
-		<label for="notion_key">노션 키<input name="notion_key" /></label>
+		<label for="notion_key">노션 키<input id="notion_key" /></label>
 
-		<label for="database_id">데이터베이스 키<input name="database_id" /></label>
+		<label for="database_id">데이터베이스 키<input id="database_id" /></label>
 
 		<div>
 			<p class="label">구독할 QT책</p>

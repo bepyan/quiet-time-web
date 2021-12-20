@@ -1,6 +1,6 @@
-import type { Content } from '@types';
+import type { QTContent } from '@types';
 
-export const contents: Content = {
+export const contents: QTContent = {
 	title: '하나님의 정의, 심판자의 전지하심',
 	date: '2021.12.15 (수)',
 	range: '욥기 34 : 21~37',

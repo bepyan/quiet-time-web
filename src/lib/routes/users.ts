@@ -1,8 +1,8 @@
-import type { QTContent, Notion } from '@types';
+import type { QTContent, INotion, IUser } from '@types';
 import onAxios from '../onAxios';
 
-export const findUser = (name: string) => {
-	return onAxios<QTContent>({
+export const findUser = ({ name }: { name: string }) => {
+	return onAxios<IUser>({
 		url: `/users/${name}`,
 		method: 'GET'
 	});
@@ -18,7 +18,7 @@ export const registerUser = (data: { name: string }) => {
 	});
 };
 
-export const subscriptNotion = ({ name, notion }: { name: string; notion: Notion }) => {
+export const subscriptNotion = ({ name, notion }: { name: string; notion: INotion }) => {
 	return onAxios<QTContent>({
 		url: `/users/${name}/notion`,
 		method: 'POST',
@@ -36,7 +36,7 @@ export const deleteUser = (data: { name: string }) => {
 	});
 };
 
-export const unsubscriptNotion = ({ name, notion }: { name: string; notion: Notion }) => {
+export const unsubscriptNotion = ({ name, notion }: { name: string; notion: INotion }) => {
 	return onAxios<QTContent>({
 		url: `/users/${name}`,
 		method: 'DELETE',

@@ -11,12 +11,4 @@ declare module '@types' {
 		verse?: number;
 		text: string;
 	}
-
-	type ContentType = '생명의삶' | '매일성경';
-
-	interface Notion {
-		key: string;
-		database_id: string;
-		contentType: ContentType;
-	}
 }

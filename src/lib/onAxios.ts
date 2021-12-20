@@ -1,6 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
-const baseURL = process.env.API_ENDPOINT;
+// const baseURL = 'http://localhost:1129/api';
+const baseURL = 'http://quiet-time-server.herokuapp.com/api';
 
 const instance: AxiosInstance = axios.create({
 	baseURL
