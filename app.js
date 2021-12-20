@@ -8,7 +8,7 @@ const template = ({ head, body }) => "<!DOCTYPE html>\n<html lang=\"en\">\n\n<he
 
 let options = null;
 
-const default_settings = { paths: {"base":"","assets":""} };
+const default_settings = { paths: {"base":"/quiet-time-web","assets":""} };
 
 // allow paths to be overridden in svelte-kit preview
 // and in prerendering
@@ -22,9 +22,9 @@ export function init(settings = default_settings) {
 		amp: false,
 		dev: false,
 		entry: {
-			file: assets + "/_app/start-f81b5138.js",
+			file: assets + "/_app/start-1f3e182e.js",
 			css: [assets + "/_app/assets/start-61d1577b.css"],
-			js: [assets + "/_app/start-f81b5138.js",assets + "/_app/chunks/vendor-f68496aa.js"]
+			js: [assets + "/_app/start-1f3e182e.js",assets + "/_app/chunks/vendor-f68496aa.js",assets + "/_app/chunks/paths-28a87002.js"]
 		},
 		fetched: undefined,
 		floc: false,
@@ -111,7 +111,7 @@ const module_lookup = {
 	"src/routes/__layout.svelte": () => import("../../src/routes/__layout.svelte"),".svelte-kit/build/components/error.svelte": () => import("./components/error.svelte"),"src/routes/index.svelte": () => import("../../src/routes/index.svelte"),"src/routes/subscription.svelte": () => import("../../src/routes/subscription.svelte"),"src/routes/setting.svelte": () => import("../../src/routes/setting.svelte")
 };
 
-const metadata_lookup = {"src/routes/__layout.svelte":{"entry":"pages/__layout.svelte-dac3bc40.js","css":["assets/pages/__layout.svelte-f7db8742.css","assets/Toast-d819ed04.css"],"js":["pages/__layout.svelte-dac3bc40.js","chunks/vendor-f68496aa.js","chunks/Toast-ab21f2bf.js"],"styles":[]},".svelte-kit/build/components/error.svelte":{"entry":"error.svelte-9c658cd4.js","css":[],"js":["error.svelte-9c658cd4.js","chunks/vendor-f68496aa.js"],"styles":[]},"src/routes/index.svelte":{"entry":"pages/index.svelte-a32d90d2.js","css":["assets/pages/index.svelte-81d0a1e7.css","assets/Toast-d819ed04.css"],"js":["pages/index.svelte-a32d90d2.js","chunks/vendor-f68496aa.js","chunks/Toast-ab21f2bf.js"],"styles":[]},"src/routes/subscription.svelte":{"entry":"pages/subscription.svelte-a0e5df16.js","css":["assets/pages/subscription.svelte-24c0cb05.css"],"js":["pages/subscription.svelte-a0e5df16.js","chunks/vendor-f68496aa.js"],"styles":[]},"src/routes/setting.svelte":{"entry":"pages/setting.svelte-6d939f9f.js","css":["assets/pages/setting.svelte-8cf39e00.css"],"js":["pages/setting.svelte-6d939f9f.js","chunks/vendor-f68496aa.js"],"styles":[]}};
+const metadata_lookup = {"src/routes/__layout.svelte":{"entry":"pages/__layout.svelte-10036366.js","css":["assets/pages/__layout.svelte-444d5d57.css","assets/Toast-d819ed04.css"],"js":["pages/__layout.svelte-10036366.js","chunks/vendor-f68496aa.js","chunks/paths-28a87002.js","chunks/Toast-ab21f2bf.js"],"styles":[]},".svelte-kit/build/components/error.svelte":{"entry":"error.svelte-9c658cd4.js","css":[],"js":["error.svelte-9c658cd4.js","chunks/vendor-f68496aa.js"],"styles":[]},"src/routes/index.svelte":{"entry":"pages/index.svelte-a32d90d2.js","css":["assets/pages/index.svelte-81d0a1e7.css","assets/Toast-d819ed04.css"],"js":["pages/index.svelte-a32d90d2.js","chunks/vendor-f68496aa.js","chunks/Toast-ab21f2bf.js"],"styles":[]},"src/routes/subscription.svelte":{"entry":"pages/subscription.svelte-a0e5df16.js","css":["assets/pages/subscription.svelte-24c0cb05.css"],"js":["pages/subscription.svelte-a0e5df16.js","chunks/vendor-f68496aa.js"],"styles":[]},"src/routes/setting.svelte":{"entry":"pages/setting.svelte-6d939f9f.js","css":["assets/pages/setting.svelte-8cf39e00.css"],"js":["pages/setting.svelte-6d939f9f.js","chunks/vendor-f68496aa.js"],"styles":[]}};
 
 async function load_component(file) {
 	const { entry, css, js, styles } = metadata_lookup[file];
