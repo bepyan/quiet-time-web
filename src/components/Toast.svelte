@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	let removeToast;
+	let removeToast: NodeJS.Timeout;
 
 	export const onToast = (string: string) => {
 		const toast = document.getElementById('toast');

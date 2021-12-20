@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Navigation from '$lib/Navigation.svelte';
-	import Toast from '$lib/Toast.svelte';
 	import '../app.css';
-	import '$lib/style.scss';
+	import '../components/__style.scss';
+	import Navigation from '../components/Navigation.svelte';
+	import Toast from '../components/Toast.svelte';
 </script>
 
 <main>

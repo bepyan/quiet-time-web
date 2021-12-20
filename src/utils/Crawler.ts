@@ -19,7 +19,7 @@ const getHTML = (link: keyof typeof links) => {
 	});
 };
 
-const decode = (data) => {
+const decode = (data: Buffer) => {
 	const bodyDecoded = iconv.decode(data, 'euc-kr');
 	return bodyDecoded;
 };

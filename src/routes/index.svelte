@@ -3,9 +3,9 @@
 </script>
 
 <script lang="ts">
-	import { contents } from '$lib/mockup';
-	import { onToast } from '../lib/Toast.svelte';
 	import { onMount } from 'svelte';
+	import { contents } from '$lib/mockup';
+	import { onToast } from '../components/Toast.svelte';
 
 	onMount(async () => {});
 
