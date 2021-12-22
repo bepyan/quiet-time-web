@@ -1,5 +1,6 @@
 <script context="module">
 	import RadioButton from '../components/RadioButton.svelte';
+	import { loadingHandler } from '../components/Loading.svelte';
 	export const prerender = true;
 </script>
 
@@ -8,12 +9,11 @@
 
 	let searchRes;
 
-	const onSearchSubsciption = async (e) => {
-		const name: string = e.target.search_uname.value;
+	const onSearchSubsciption = loadingHandler(async (e) => {
+		const name: string = e.target.uname.value;
 		searchRes = await db.findUser({ name });
-
 		console.log(searchRes);
-	};
+	});
 
 	const onSubscript = (e) => {};
 </script>

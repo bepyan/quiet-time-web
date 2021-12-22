@@ -1,22 +1,21 @@
 <script context="module" lang="ts">
 	let removeToast: NodeJS.Timeout;
+	let toast: HTMLElement;
 
 	export const onToast = (string: string) => {
-		const toast = document.getElementById('toast');
-
-		if (toast.classList.contains('show')) {
+		if (toast.classList.contains('show-toast')) {
 			clearTimeout(removeToast);
 		}
 
-		toast.classList.add('show');
+		toast.classList.add('show-toast');
 		toast.innerText = string;
 		removeToast = setTimeout(() => {
-			toast.classList.remove('show');
+			toast.classList.remove('show-toast');
 		}, 1000);
 	};
 </script>
 
-<div id="toast" />
+<div id="toast" bind:this={toast} />
 
 <style>
 	#toast {

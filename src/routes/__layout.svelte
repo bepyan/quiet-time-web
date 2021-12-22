@@ -3,6 +3,7 @@
 	import '../components/__style.scss';
 	import Navigation from '../components/Navigation.svelte';
 	import Toast from '../components/Toast.svelte';
+	import Loading from '../components/Loading.svelte';
 </script>
 
 <main>
@@ -11,6 +12,7 @@
 
 <Navigation />
 <Toast />
+<Loading />
 
 <style>
 	main {
