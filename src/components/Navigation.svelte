@@ -1,9 +1,20 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
+
+	let scrollY = 0;
+	let offsetY = 0;
+	let isHide = false;
+
+	$: {
+		isHide = scrollY - offsetY > 0;
+		offsetY = scrollY;
+	}
 </script>
 
-<nav>
+<svelte:window bind:scrollY />
+
+<nav class={isHide && 'hide'}>
 	<ul>
 		<li class:active={$page.path === '/setting'}>
 			<a sveltekit:prefetch href="{base}/setting">설정</a>
@@ -23,6 +34,8 @@
 		justify-content: center;
 		bottom: 4rem;
 		--background: rgba(255, 255, 255, 0.9);
+
+		transition: all 200ms ease-in-out;
 	}
 
 	ul {
@@ -76,5 +89,11 @@
 
 	a:hover {
 		color: var(--accent-color);
+	}
+
+	.hide {
+		transform: translateY(40px);
+		opacity: 0;
+		visibility: hidden;
 	}
 </style>
