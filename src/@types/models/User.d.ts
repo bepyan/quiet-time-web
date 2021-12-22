@@ -1,13 +1,19 @@
-import { CrawlerKey } from '../../services/CrawlerService';
-
 declare module '@types' {
+	type ContentType = '생명의삶' | '매일성경';
+
 	/* ---------------- DTO ---------------- */
-	interface IUserDTO {
+	interface UserDTO {
 		name: string;
-		notions?: INotion[];
+		notion_auth: string;
 	}
 
-	interface ISubscriptNotionDTO {
+	interface CreateNotionDTO {
+		name: string;
+		page_id: string;
+		contentType: ContentType;
+	}
+
+	interface SubscriptNotionDTO {
 		name: string;
 		notion: INotion;
 	}
@@ -16,13 +22,14 @@ declare module '@types' {
 
 	interface IUser {
 		name: string;
+		notion_auth: string;
 		notions: INotion[];
 		create_date?: Date;
 	}
 
 	interface INotion {
-		key: string;
 		database_id: string;
-		contentType: CrawlerKey;
+		contentType: ContentType;
+		create_date?: Date;
 	}
 }
