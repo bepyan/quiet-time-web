@@ -33,8 +33,6 @@
 		display: flex;
 		justify-content: center;
 		bottom: 4rem;
-		--background: rgba(255, 255, 255, 0.9);
-
 		transition: all 200ms ease-in-out;
 	}
 
@@ -48,11 +46,12 @@
 		justify-content: center;
 		align-items: center;
 		list-style: none;
-		background: var(--background);
+		background: rgba(255, 255, 255, 0.75);
 		background-size: contain;
 		border-radius: 1rem;
-		box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 5px 10px,
-			rgba(15, 15, 15, 0.2) 0px 15px 40px;
+		backdrop-filter: blur(4px);
+		-webkit-backdrop-filter: blur(4px);
+		box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 	}
 
 	li {
@@ -89,6 +88,7 @@
 
 	a:hover {
 		color: var(--accent-color);
+		text-shadow: none;
 	}
 
 	.hide {
