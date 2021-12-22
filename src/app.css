@@ -53,17 +53,18 @@ p {
 	font-weight: 400;
 }
 
-label > *{
+label > * {
 	margin-top: 0.5rem;
 }
 
 a {
 	color: var(--accent-color);
 	text-decoration: none;
+	transition: text-shadow 100ms ease-out;
 }
 
 a:hover {
-	text-decoration: underline;
+	text-shadow: 1px 1px 32px var(--accent-color);
 }
 
 h1,
@@ -126,7 +127,7 @@ button {
 }
 
 button:hover {
-	box-shadow: rgba(15, 15, 15, 0.1) 0px 5px 16px;
+	box-shadow: var(--accent-background) 0px 5px 32px;
 }
 
 input,
