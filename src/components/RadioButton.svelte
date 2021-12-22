@@ -16,9 +16,6 @@
 		border-radius: 0.5rem;
 		transition: background-color 200ms ease-out;
 	}
-	label:hover {
-		background-color: var(--accent-background);
-	}
 	label:hover input {
 		border: 1px solid var(--accent-color);
 	}
