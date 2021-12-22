@@ -9,7 +9,7 @@
 </script>
 
 <div id="loading" bind:this={container}>
-	<img src="xmas.gif" alt="loading" width="200" />
+	<img src="/xmas.gif" alt="loading" width="200" />
 </div>
 
 <style>
