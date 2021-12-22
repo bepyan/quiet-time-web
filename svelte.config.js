@@ -6,6 +6,9 @@ const config = {
 	preprocess: preprocess(),
 	kit: {
 		target: '#svelte',
+		files: {
+			assets: '/quiet-time-web/static'
+		},
 		adapter: static_adapter(),
 		paths: {
 			base: '/quiet-time-web'
