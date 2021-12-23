@@ -1,9 +1,17 @@
+<script context="module" lang="ts">
+	let form: HTMLElement;
+
+	export const scrollToSubscriptionCard = () => {
+		form.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+	};
+</script>
+
 <script lang="ts">
 	import RadioButton from '../components/RadioButton.svelte';
 	const onSubscript = (e) => {};
 </script>
 
-<form class="card" on:submit|preventDefault={onSubscript}>
+<form class="card" on:submit|preventDefault={onSubscript} bind:this={form}>
 	<header>
 		<h1>구독</h1>
 		<h2>
