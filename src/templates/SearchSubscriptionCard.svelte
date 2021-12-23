@@ -21,7 +21,7 @@
 
 	const onDeleteUser = loadingHandler(async () => {
 		const { message } = await db.deleteUser({ name: user.name });
-		if (message) return onToast(message);
+		if (message) return alert(message);
 
 		await onSearch(user.name);
 		onToast('성공적으로 탈퇴되었습니다.');
@@ -29,7 +29,7 @@
 
 	const onDeleteSubscription = loadingHandler(async (notion: INotion) => {
 		const { message } = await db.unsubscriptNotion({ name: user.name, notion });
-		if (message) return onToast(message);
+		if (message) return alert(message);
 
 		await onSearch(user.name);
 		onToast('구독이 취소되었습니다.');
