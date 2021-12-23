@@ -10,13 +10,13 @@
 
 		
 
-		<link rel="modulepreload" href="/quiet-time-web/_app/start-14021286.js">
-		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/vendor-013da8bc.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/start-797cc9ef.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/vendor-15021308.js">
 		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/paths-28a87002.js">
-		<link rel="modulepreload" href="/quiet-time-web/_app/pages/__layout.svelte-fa1ec071.js">
-		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/Toast-6777a7b7.js">
-		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/Loading-e99a6aab.js">
-		<link rel="modulepreload" href="/quiet-time-web/_app/pages/subscription.svelte-0a88fabe.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/pages/__layout.svelte-acbe4d64.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/Toast-f8b2175b.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/Loading-d126ada4.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/pages/subscription.svelte-227a6da8.js">
 		<link rel="stylesheet" href="/quiet-time-web/_app/assets/start-61d1577b.css">
 		<link rel="stylesheet" href="/quiet-time-web/_app/assets/pages/__layout.svelte-fcc8541d.css">
 		<link rel="stylesheet" href="/quiet-time-web/_app/assets/Toast-d819ed04.css">
@@ -24,7 +24,7 @@
 		<link rel="stylesheet" href="/quiet-time-web/_app/assets/pages/subscription.svelte-ef2a497b.css">
 
 		<script type="module">
-			import { start } from "/quiet-time-web/_app/start-14021286.js";
+			import { start } from "/quiet-time-web/_app/start-797cc9ef.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/quiet-time-web","assets":""},
@@ -37,8 +37,8 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/quiet-time-web/_app/pages/__layout.svelte-fa1ec071.js"),
-						import("/quiet-time-web/_app/pages/subscription.svelte-0a88fabe.js")
+						import("/quiet-time-web/_app/pages/__layout.svelte-acbe4d64.js"),
+						import("/quiet-time-web/_app/pages/subscription.svelte-227a6da8.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -71,7 +71,9 @@
 
 	<section><label for="uname">사용자 아이디<input id="uname"></label>
 
-		<label for="notion_auth">노션 시크릿 토큰<input id="notion_auth"></label></section>
+		<label for="notion_auth">노션 시크릿 토큰
+			<a target="_blank" href="https://www.notion.so/my-integrations">생성</a>
+			<input id="notion_auth"></label></section>
 
 	<section><button type="submit">등록하기</button></section></form>
 <form class="card"><header><h1>구독</h1>
@@ -92,9 +94,10 @@
 	매일성경
 </label></div></section>
 
-	<section><button type="submit" class="svelte-q2ol98">구독하기</button>
+	<section><h2>10초 정도 소요될 수 있습니다.</h2>
+		<button type="submit" class="svelte-q2ol98">구독하기</button>
 		<h2>구독할 노션 페이지에
-			<a target="_blank" href="https://bepyan.notion.site/bb424a05431745749e025e9df6e5d59b">&#39;봇&#39; 초대</a>을 했는지 꼭 확인해주세요.
+			<a target="_blank" href="https://bepyan.notion.site/bb424a05431745749e025e9df6e5d59b">&#39;봇&#39; 초대</a>를 했는지 꼭 확인해주세요.
 		</h2></section>
 </form></main>
 
