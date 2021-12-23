@@ -1,14 +1,30 @@
 <script context="module" lang="ts">
 	let form: HTMLElement;
+	let uname: HTMLInputElement;
 
-	export const scrollToSubscriptionCard = () => {
+	export const scrollToSubscriptionCard = (name: string) => {
+		uname.value = name;
 		form.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
 	};
 </script>
 
 <script lang="ts">
+	import { db } from '$lib/db';
+	import type { ContentType } from '@types';
+	import { onToast } from '../components/Toast.svelte';
+	import { loadingHandler } from '../components/Loading.svelte';
 	import RadioButton from '../components/RadioButton.svelte';
-	const onSubscript = (e) => {};
+	const onSubscript = loadingHandler(async (e) => {
+		const name: string = e.target.uname.value;
+		const page_id: string = e.target.notion_auth.value;
+		const contentType: ContentType = e.target.contentType.value;
+		if (!name || !page_id || !contentType) return onToast('빈칸을 채워주세요.');
+
+		const { message } = await db.registerNotion({ name, page_id, contentType });
+		if (!!message) return onToast(message, 3000);
+
+		onToast('구독이 완료되었습니다 🥰', 3000);
+	});
 </script>
 
 <form class="card" on:submit|preventDefault={onSubscript} bind:this={form}>
@@ -32,7 +48,7 @@
 	</header>
 
 	<section>
-		<label for="uname">사용자 아이디<input id="uname" /></label>
+		<label for="uname">사용자 아이디<input id="uname" bind:this={uname} /></label>
 
 		<label for="page_id">페이지 아이디<input id="page_id" /></label>
 

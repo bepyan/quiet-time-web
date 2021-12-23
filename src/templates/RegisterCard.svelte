@@ -14,7 +14,7 @@
 
 		e.target.reset();
 		onToast('가입을 성공했습니다 😘', 3000);
-		scrollToSubscriptionCard();
+		scrollToSubscriptionCard(name);
 	});
 </script>
 
