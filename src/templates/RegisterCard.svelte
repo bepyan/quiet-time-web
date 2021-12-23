@@ -10,10 +10,10 @@
 		if (!name || !notion_auth) return onToast('빈칸을 채워주세요.');
 
 		const { message } = await db.registerUser({ name, notion_auth });
-		if (message) return onToast(message, 3000);
+		if (message) return onToast(message);
 
 		e.target.reset();
-		onToast('가입을 성공했습니다 😘', 3000);
+		onToast('가입을 성공했습니다 😘');
 		scrollToSubscriptionCard(name);
 	});
 </script>

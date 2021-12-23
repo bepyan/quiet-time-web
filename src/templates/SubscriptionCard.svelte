@@ -21,9 +21,9 @@
 		if (!name || !page_id || !contentType) return onToast('빈칸을 채워주세요.');
 
 		const { message } = await db.registerNotion({ name, page_id, contentType });
-		if (!!message) return onToast(message, 3000);
+		if (!!message) return onToast(message);
 
-		onToast('구독이 완료되었습니다 🥰', 3000);
+		onToast('구독이 완료되었습니다 🥰');
 	});
 </script>
 

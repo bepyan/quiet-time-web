@@ -12,7 +12,7 @@
 	const copyToClipboard = async (val: string) => {
 		try {
 			await navigator.clipboard.writeText(val);
-			onToast('클립보드에 복사 완료');
+			onToast('클립보드에 복사 완료', 1000);
 		} catch (e) {
 			onToast('[오류] 복사 실패');
 			console.log(e);
