@@ -35,6 +35,7 @@ instance.interceptors.response.use(
 
 interface APIReturnType<T> {
 	data?: T;
+	message?: string;
 }
 
 export type onAxiosResult<T> = Promise<APIReturnType<T>>;

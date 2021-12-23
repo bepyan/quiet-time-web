@@ -11,7 +11,7 @@ export const findUser = ({ name }: { name: string }) => {
 /* ---------------- post ---------------- */
 
 export const registerUser = (data: UserDTO) => {
-	return onAxios<QTContent>({
+	return onAxios<void>({
 		url: `/users`,
 		method: 'POST',
 		data
