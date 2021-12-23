@@ -2,7 +2,7 @@ import type { QTContent, IUser, UserDTO, SubscriptNotionDTO, CreateNotionDTO } f
 import onAxios from '../onAxios';
 
 export const findUser = ({ name }: { name: string }) => {
-	return onAxios<IUser>({
+	return onAxios<IUser | null>({
 		url: `/users/${name}`,
 		method: 'GET'
 	});
