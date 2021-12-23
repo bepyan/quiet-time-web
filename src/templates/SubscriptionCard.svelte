@@ -16,7 +16,7 @@
 	import RadioButton from '../components/RadioButton.svelte';
 	const onSubscript = loadingHandler(async (e) => {
 		const name: string = e.target.uname.value;
-		const page_id: string = e.target.notion_auth.value;
+		const page_id: string = e.target.page_id.value;
 		const contentType: ContentType = e.target.contentType.value;
 		if (!name || !page_id || !contentType) return onToast('빈칸을 채워주세요.');
 
@@ -60,12 +60,13 @@
 	</section>
 
 	<section>
+		<h2>10초 정도 소요될 수 있습니다.</h2>
 		<button type="submit">구독하기</button>
 		<h2>
 			구독할 노션 페이지에
 			<a target="_blank" href="https://bepyan.notion.site/bb424a05431745749e025e9df6e5d59b">
 				'봇' 초대</a
-			>을 했는지 꼭 확인해주세요.
+			>를 했는지 꼭 확인해주세요.
 		</h2>
 	</section>
 </form>
