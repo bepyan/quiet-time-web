@@ -37,7 +37,7 @@ export const subscriptNotion = ({ name, notion }: SubscriptNotionDTO) => {
 /* ---------------- delete ---------------- */
 
 export const deleteUser = (data: { name: string }) => {
-	return onAxios<QTContent>({
+	return onAxios<void>({
 		url: `/users`,
 		method: 'DELETE',
 		data
@@ -45,7 +45,7 @@ export const deleteUser = (data: { name: string }) => {
 };
 
 export const unsubscriptNotion = ({ name, notion }: SubscriptNotionDTO) => {
-	return onAxios<QTContent>({
+	return onAxios<void>({
 		url: `/users/${name}/notion/subscription`,
 		method: 'DELETE',
 		data: notion

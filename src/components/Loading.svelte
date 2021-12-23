@@ -2,9 +2,12 @@
 	let container: HTMLElement;
 
 	export const loadingHandler = (fn: any) => async (e: any) => {
-		container.classList.add('show-loading');
-		await fn(e);
-		container.classList.remove('show-loading');
+		try {
+			container.classList.add('show-loading');
+			await fn(e);
+		} finally {
+			container.classList.remove('show-loading');
+		}
 	};
 </script>
 
