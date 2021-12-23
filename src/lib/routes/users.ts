@@ -1,4 +1,4 @@
-import type { QTContent, IUser, UserDTO, SubscriptNotionDTO, CreateNotionDTO } from '@types';
+import type { IUser, UserDTO, SubscriptNotionDTO, CreateNotionDTO } from '@types';
 import onAxios from '../onAxios';
 
 export const findUser = ({ name }: { name: string }) => {
@@ -30,7 +30,7 @@ export const subscriptNotion = ({ name, notion }: SubscriptNotionDTO) => {
 	return onAxios<void>({
 		url: `/users/${name}/notion/subscription`,
 		method: 'POST',
-		data: notion
+		data: { notion }
 	});
 };
 
@@ -48,6 +48,6 @@ export const unsubscriptNotion = ({ name, notion }: SubscriptNotionDTO) => {
 	return onAxios<void>({
 		url: `/users/${name}/notion/subscription`,
 		method: 'DELETE',
-		data: notion
+		data: { notion }
 	});
 };

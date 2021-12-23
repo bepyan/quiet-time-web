@@ -31,7 +31,11 @@
 	<section>
 		<label for="uname">사용자 아이디<input id="uname" /></label>
 
-		<label for="notion_auth">노션 시크릿 토큰<input id="notion_auth" /></label>
+		<label for="notion_auth"
+			>노션 시크릿 토큰
+			<a target="_blank" href="https://www.notion.so/my-integrations">생성</a>
+			<input id="notion_auth" />
+		</label>
 	</section>
 
 	<section>

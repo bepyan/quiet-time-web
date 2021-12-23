@@ -44,7 +44,7 @@ const onAxios = async <T>(props: AxiosRequestConfig): onAxiosResult<T> => {
 	try {
 		return await instance(props);
 	} catch (e) {
-		console.log(e);
+		return e?.response?.data;
 	}
 };
 
