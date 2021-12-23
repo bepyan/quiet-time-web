@@ -2,7 +2,7 @@
 	let removeToast: NodeJS.Timeout;
 	let toast: HTMLElement;
 
-	export const onToast = (string: string) => {
+	export const onToast = (string: string, time = 1000) => {
 		if (toast.classList.contains('show-toast')) {
 			clearTimeout(removeToast);
 		}
@@ -11,7 +11,7 @@
 		toast.innerText = string;
 		removeToast = setTimeout(() => {
 			toast.classList.remove('show-toast');
-		}, 1000);
+		}, time);
 	};
 </script>
 
