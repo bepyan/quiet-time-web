@@ -10,21 +10,21 @@
 
 		
 
-		<link rel="modulepreload" href="/quiet-time-web/_app/start-e715b352.js">
-		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/vendor-f97919ae.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/start-14021286.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/vendor-013da8bc.js">
 		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/paths-28a87002.js">
-		<link rel="modulepreload" href="/quiet-time-web/_app/pages/__layout.svelte-296b6ed3.js">
-		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/Toast-f86da8e8.js">
-		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/Loading-fb184e5a.js">
-		<link rel="modulepreload" href="/quiet-time-web/_app/pages/subscription.svelte-b03e321d.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/pages/__layout.svelte-fa1ec071.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/Toast-6777a7b7.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/Loading-e99a6aab.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/pages/subscription.svelte-0a88fabe.js">
 		<link rel="stylesheet" href="/quiet-time-web/_app/assets/start-61d1577b.css">
-		<link rel="stylesheet" href="/quiet-time-web/_app/assets/pages/__layout.svelte-56bf6d2d.css">
+		<link rel="stylesheet" href="/quiet-time-web/_app/assets/pages/__layout.svelte-fcc8541d.css">
 		<link rel="stylesheet" href="/quiet-time-web/_app/assets/Toast-d819ed04.css">
 		<link rel="stylesheet" href="/quiet-time-web/_app/assets/Loading-654cb24b.css">
-		<link rel="stylesheet" href="/quiet-time-web/_app/assets/pages/subscription.svelte-3db7753b.css">
+		<link rel="stylesheet" href="/quiet-time-web/_app/assets/pages/subscription.svelte-ef2a497b.css">
 
 		<script type="module">
-			import { start } from "/quiet-time-web/_app/start-e715b352.js";
+			import { start } from "/quiet-time-web/_app/start-14021286.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/quiet-time-web","assets":""},
@@ -37,8 +37,8 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/quiet-time-web/_app/pages/__layout.svelte-296b6ed3.js"),
-						import("/quiet-time-web/_app/pages/subscription.svelte-b03e321d.js")
+						import("/quiet-time-web/_app/pages/__layout.svelte-fa1ec071.js"),
+						import("/quiet-time-web/_app/pages/subscription.svelte-0a88fabe.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -60,9 +60,11 @@
 <form class="card"><header><h1>구독 조회</h1></header>
 
 	<section><label for="uname">사용자 아이디
-			<div class="row svelte-1y64iwt"><input type="text" id="uname" class="svelte-1y64iwt">
-				<button type="submit" class="svelte-1y64iwt">조회하기</button></div></label></section></form>
+			<div class="row svelte-jrh57g"><input type="text" id="uname" class="svelte-jrh57g">
+				<button type="submit" class="svelte-jrh57g">조회하기</button></div></label></section>
 
+	
+</form>
 <form class="card"><header><h1>가입</h1>
 		<h2><a target="_blank" href="https://bepyan.notion.site/bb424a05431745749e025e9df6e5d59b">가이드북</a>을 참고해서 진행해주세요!
 		</h2></header>
@@ -71,8 +73,7 @@
 
 		<label for="notion_auth">노션 시크릿 토큰<input id="notion_auth"></label></section>
 
-	<section><button type="submit" class="svelte-1y64iwt">등록하기</button></section></form>
-
+	<section><button type="submit">등록하기</button></section></form>
 <form class="card"><header><h1>구독</h1>
 		<h2>매일 오전 5시,
 			<a target="_blank" href="https://bepyan.notion.site/37-14-24-22cc532b12064a1d864c621260c82324">QT 본문 및 해설</a>을 신속 배송해드립니다.
@@ -83,7 +84,7 @@
 
 		<label for="page_id">페이지 아이디<input id="page_id"></label>
 
-		<div><p class="label svelte-1y64iwt">구독할 QT책</p>
+		<div><p class="label svelte-q2ol98">구독할 QT책</p>
 			<label for="생명의삶" class="svelte-95311m"><input type="radio" id="생명의삶" name="contentType" value="생명의삶" class="svelte-95311m">
 	생명의삶
 </label>
@@ -91,7 +92,7 @@
 	매일성경
 </label></div></section>
 
-	<section><button type="submit" class="svelte-1y64iwt">구독하기</button>
+	<section><button type="submit" class="svelte-q2ol98">구독하기</button>
 		<h2>구독할 노션 페이지에
 			<a target="_blank" href="https://bepyan.notion.site/bb424a05431745749e025e9df6e5d59b">&#39;봇&#39; 초대</a>을 했는지 꼭 확인해주세요.
 		</h2></section>
