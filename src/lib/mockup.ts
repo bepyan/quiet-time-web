@@ -1,4 +1,12 @@
-import type { QTContent } from '@types';
+import type { ContentType, QTContent } from '@types';
+
+export const contentTypeList: ContentType[] = [
+	'생명의삶',
+	'매일성경',
+	'매일성경 순',
+	'매일성경 영어',
+	'매일성경 청소년'
+];
 
 export const contents: QTContent = {
 	title: '하나님의 정의, 심판자의 전지하심',

@@ -10,10 +10,12 @@
 
 <script lang="ts">
 	import { db } from '$lib/db';
+	import { contentTypeList } from '$lib/mockup';
 	import type { ContentType } from '@types';
 	import { onToast } from '../components/Toast.svelte';
 	import { loadingHandler } from '../components/Loading.svelte';
 	import RadioButton from '../components/RadioButton.svelte';
+
 	const onSubscript = loadingHandler(async (e) => {
 		const name: string = e.target.uname.value;
 		const page_id: string = e.target.page_id.value;
@@ -54,8 +56,9 @@
 
 		<div>
 			<p class="label">구독할 QT책</p>
-			<RadioButton group="contentType" value="생명의삶" />
-			<RadioButton group="contentType" value="매일성경" />
+			{#each contentTypeList as value}
+				<RadioButton group="contentType" {value} />
+			{/each}
 		</div>
 	</section>
 
