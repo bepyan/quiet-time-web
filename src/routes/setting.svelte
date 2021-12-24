@@ -37,8 +37,13 @@
 	</section>
 </div>
 
+<div class="blank" />
+
 <style>
 	button {
 		margin-left: auto;
+	}
+	.blank {
+		margin-bottom: 2rem;
 	}
 </style>

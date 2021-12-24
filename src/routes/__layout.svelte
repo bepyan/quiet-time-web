@@ -10,6 +10,10 @@
 	<slot />
 </main>
 
+<footer>
+	<a target="_blank" href="https://github.com/bepyan">© bepyan</a>
+</footer>
+
 <Navigation />
 <Toast />
 <Loading />
@@ -24,5 +28,14 @@
 		max-width: 1024px;
 		margin: 0 auto;
 		box-sizing: border-box;
+	}
+
+	footer {
+		margin-top: auto;
+		text-align: center;
+		user-select: none;
+	}
+	footer > a {
+		color: rgba(0, 0, 0, 0.7);
 	}
 </style>
