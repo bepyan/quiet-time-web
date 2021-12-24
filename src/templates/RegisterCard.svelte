@@ -3,6 +3,7 @@
 	import { onToast } from '../components/Toast.svelte';
 	import { loadingHandler } from '../components/Loading.svelte';
 	import { scrollToSubscriptionCard } from './SubscriptionCard.svelte';
+	import { links } from '$lib/mockup';
 
 	const onSubscript = loadingHandler(async (e) => {
 		const name: string = e.target.uname.value;
@@ -22,9 +23,7 @@
 	<header>
 		<h1>가입</h1>
 		<h2>
-			<a target="_blank" href="https://bepyan.notion.site/bb424a05431745749e025e9df6e5d59b">
-				가이드북</a
-			>을 참고해서 진행해주세요!
+			<a target="_blank" href={links.구독가이드}>가이드북</a>을 참고해서 진행해주세요!
 		</h2>
 	</header>
 
@@ -33,7 +32,7 @@
 
 		<label for="notion_auth"
 			>노션 시크릿 토큰
-			<a target="_blank" href="https://www.notion.so/my-integrations">생성</a>
+			<a target="_blank" href={links.노션통합등록}>생성</a>
 			<input id="notion_auth" />
 		</label>
 	</section>

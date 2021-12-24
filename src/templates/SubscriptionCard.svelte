@@ -10,11 +10,14 @@
 
 <script lang="ts">
 	import { db } from '$lib/db';
-	import { contentTypeList } from '$lib/mockup';
+	import { contentTypeList, links } from '$lib/mockup';
 	import type { ContentType } from '@types';
 	import { onToast } from '../components/Toast.svelte';
 	import { loadingHandler } from '../components/Loading.svelte';
 	import RadioButton from '../components/RadioButton.svelte';
+
+	let isDone = false;
+	let welcomeCard: HTMLElement;
 
 	const onSubscript = loadingHandler(async (e) => {
 		const name: string = e.target.uname.value;
@@ -26,7 +29,15 @@
 		if (!!message) return onToast(message);
 
 		onToast('구독이 완료되었습니다 🥰');
+		isDone = true;
+
+		await new Promise((e) => setTimeout(e, 300));
+		scrollToSubscriptionCard();
 	});
+
+	const scrollToSubscriptionCard = () => {
+		welcomeCard.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+	};
 </script>
 
 <form class="card" on:submit|preventDefault={onSubscript} bind:this={form}>
@@ -34,18 +45,8 @@
 		<h1>구독</h1>
 		<h2>
 			매일 오전 5시,
-			<a
-				target="_blank"
-				href="https://bepyan.notion.site/37-14-24-22cc532b12064a1d864c621260c82324"
-			>
-				QT 본문 및 해설</a
-			>을 신속 배송해드립니다.
-			<a
-				target="_blank"
-				href="https://bepyan.notion.site/1ce713edac2440d3abf639d6745703e9?v=efce438deaf3421aba251788bc6a77f3"
-			>
-				템플릿 보기</a
-			>.
+			<a target="_blank" href={links.본문_예시}> QT 본문 및 해설</a>을 신속 배송해드립니다.
+			<a target="_blank" href={links.데이터베이스_예시}> 템플릿 보기</a>.
 		</h2>
 	</header>
 
@@ -67,12 +68,25 @@
 		<button type="submit">구독하기</button>
 		<h2>
 			구독할 노션 페이지에
-			<a target="_blank" href="https://bepyan.notion.site/bb424a05431745749e025e9df6e5d59b">
-				'봇' 초대</a
-			>를 했는지 꼭 확인해주세요.
+			<a target="_blank" href={links.구독가이드}>'봇' 초대</a>를 했는지 꼭 확인해주세요.
 		</h2>
 	</section>
 </form>
+
+<div class="card welcome-card" bind:this={welcomeCard}>
+	<header>
+		<h1>환영합니다</h1>
+	</header>
+
+	<section>
+		<p>구독이 완료되었습니다 🥰</p>
+		<p>금일 큐티 본문이 노션 데이터베이스에 배송되었습니다.</p>
+		<p>
+			<a target="_blank" href={links.구독가이드}>데이터베이스 꾸미기</a>을 참고해서 편하게 노션에서
+			큐티하세요!
+		</p>
+	</section>
+</div>
 
 <style lang="scss">
 	.label {
@@ -81,5 +95,9 @@
 
 	button {
 		height: 3rem;
+	}
+
+	.welcome-card {
+		margin-bottom: 25%;
 	}
 </style>
