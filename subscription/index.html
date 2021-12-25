@@ -2,7 +2,13 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="description" content="Svelte demo app" />
+		<meta property="og:title" content="성경묵상 | QT 구독" />
+		<meta property="og:type" content="website" />
+		<meta name="og:description" content="성경묵상 및 QT 노션 구독 사이트입니다." />
+		<meta
+			property="og:image"
+			content="https://images.velog.io/images/bepyan/post/d3f3b14a-8dc3-4940-8399-2450b1630aa7/image.png"
+		/>
 		<link
 			rel="icon"
 			href="https://user-images.githubusercontent.com/65283190/147260391-20ee5422-f42d-431a-ae42-2915dcb49701.png"
@@ -12,21 +18,22 @@
 
 		
 
-		<link rel="modulepreload" href="/quiet-time-web/_app/start-797cc9ef.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/start-e17e7406.js">
 		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/vendor-15021308.js">
 		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/paths-28a87002.js">
-		<link rel="modulepreload" href="/quiet-time-web/_app/pages/__layout.svelte-acbe4d64.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/pages/__layout.svelte-b935bede.js">
 		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/Toast-f8b2175b.js">
 		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/Loading-d126ada4.js">
-		<link rel="modulepreload" href="/quiet-time-web/_app/pages/subscription.svelte-227a6da8.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/pages/subscription.svelte-c1f1498b.js">
+		<link rel="modulepreload" href="/quiet-time-web/_app/chunks/mockup-ddfdb9a3.js">
 		<link rel="stylesheet" href="/quiet-time-web/_app/assets/start-61d1577b.css">
-		<link rel="stylesheet" href="/quiet-time-web/_app/assets/pages/__layout.svelte-fcc8541d.css">
+		<link rel="stylesheet" href="/quiet-time-web/_app/assets/pages/__layout.svelte-06924af7.css">
 		<link rel="stylesheet" href="/quiet-time-web/_app/assets/Toast-d819ed04.css">
 		<link rel="stylesheet" href="/quiet-time-web/_app/assets/Loading-654cb24b.css">
-		<link rel="stylesheet" href="/quiet-time-web/_app/assets/pages/subscription.svelte-ef2a497b.css">
+		<link rel="stylesheet" href="/quiet-time-web/_app/assets/pages/subscription.svelte-77461253.css">
 
 		<script type="module">
-			import { start } from "/quiet-time-web/_app/start-797cc9ef.js";
+			import { start } from "/quiet-time-web/_app/start-e17e7406.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/quiet-time-web","assets":""},
@@ -39,8 +46,8 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/quiet-time-web/_app/pages/__layout.svelte-acbe4d64.js"),
-						import("/quiet-time-web/_app/pages/subscription.svelte-227a6da8.js")
+						import("/quiet-time-web/_app/pages/__layout.svelte-b935bede.js"),
+						import("/quiet-time-web/_app/pages/subscription.svelte-c1f1498b.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -57,7 +64,7 @@
 		<div id="svelte">
 
 
-<main class="svelte-1l5lemn">
+<main class="svelte-1l4r5ox">
 
 <form class="card"><header><h1>구독 조회</h1></header>
 
@@ -80,28 +87,36 @@
 	<section><button type="submit">등록하기</button></section></form>
 <form class="card"><header><h1>구독</h1>
 		<h2>매일 오전 5시,
-			<a target="_blank" href="https://bepyan.notion.site/37-14-24-22cc532b12064a1d864c621260c82324">QT 본문 및 해설</a>을 신속 배송해드립니다.
-			<a target="_blank" href="https://bepyan.notion.site/1ce713edac2440d3abf639d6745703e9?v=efce438deaf3421aba251788bc6a77f3">템플릿 보기</a>.
+			<a target="_blank" href="https://bepyan.notion.site/38-22-38-9e65ca1a880a44a1894bc49588e33c26">QT 본문 및 해설</a>을 신속 배송해드립니다.
+			<a target="_blank" href="https://bepyan.notion.site/1ce713edac2440d3abf639d6745703e9?v=73b0118363eb4133930fb97e0639c042">템플릿 보기</a>.
 		</h2></header>
 
 	<section><label for="uname">사용자 아이디<input id="uname"></label>
 
 		<label for="page_id">페이지 아이디<input id="page_id"></label>
 
-		<div><p class="label svelte-q2ol98">구독할 QT책</p>
+		<div><p class="label svelte-8uraww">구독할 QT책</p>
 			<label for="생명의삶" class="svelte-95311m"><input type="radio" id="생명의삶" name="contentType" value="생명의삶" class="svelte-95311m">
 	생명의삶
-</label>
-			<label for="매일성경" class="svelte-95311m"><input type="radio" id="매일성경" name="contentType" value="매일성경" class="svelte-95311m">
+</label><label for="매일성경" class="svelte-95311m"><input type="radio" id="매일성경" name="contentType" value="매일성경" class="svelte-95311m">
 	매일성경
+</label><label for="매일성경 순" class="svelte-95311m"><input type="radio" id="매일성경 순" name="contentType" value="매일성경 순" class="svelte-95311m">
+	매일성경 순
+</label><label for="매일성경 영어" class="svelte-95311m"><input type="radio" id="매일성경 영어" name="contentType" value="매일성경 영어" class="svelte-95311m">
+	매일성경 영어
+</label><label for="매일성경 청소년" class="svelte-95311m"><input type="radio" id="매일성경 청소년" name="contentType" value="매일성경 청소년" class="svelte-95311m">
+	매일성경 청소년
 </label></div></section>
 
 	<section><h2>10초 정도 소요될 수 있습니다.</h2>
-		<button type="submit" class="svelte-q2ol98">구독하기</button>
+		<button type="submit" class="svelte-8uraww">구독하기</button>
 		<h2>구독할 노션 페이지에
 			<a target="_blank" href="https://bepyan.notion.site/bb424a05431745749e025e9df6e5d59b">&#39;봇&#39; 초대</a>를 했는지 꼭 확인해주세요.
-		</h2></section>
-</form></main>
+		</h2></section></form>
+
+</main>
+
+<footer class="svelte-1l4r5ox"><a target="_blank" href="https://github.com/bepyan" class="svelte-1l4r5ox">© bepyan</a></footer>
 
 
 
