@@ -31,7 +31,7 @@
 	}
 
 	footer {
-		margin-top: auto;
+		margin-top: 2rem;
 		text-align: center;
 		user-select: none;
 	}

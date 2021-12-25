@@ -73,20 +73,22 @@
 	</section>
 </form>
 
-<div class="card welcome-card" bind:this={welcomeCard}>
-	<header>
-		<h1>환영합니다</h1>
-	</header>
+{#if isDone}
+	<div class="card welcome-card" bind:this={welcomeCard}>
+		<header>
+			<h1>환영합니다</h1>
+		</header>
 
-	<section>
-		<p>구독이 완료되었습니다 🥰</p>
-		<p>금일 큐티 본문이 노션 데이터베이스에 배송되었습니다.</p>
-		<p>
-			<a target="_blank" href={links.구독가이드}>데이터베이스 꾸미기</a>을 참고해서 편하게 노션에서
-			큐티하세요!
-		</p>
-	</section>
-</div>
+		<section>
+			<p>구독이 완료되었습니다 🥰</p>
+			<p>금일 큐티 본문이 노션 데이터베이스에 배송되었습니다.</p>
+			<p>
+				<a target="_blank" href={links.구독가이드}>데이터베이스 꾸미기</a>을 참고해서 편하게
+				노션에서 큐티하세요!
+			</p>
+		</section>
+	</div>
+{/if}
 
 <style lang="scss">
 	.label {
@@ -98,6 +100,6 @@
 	}
 
 	.welcome-card {
-		margin-bottom: 25%;
+		margin-bottom: 23%;
 	}
 </style>
