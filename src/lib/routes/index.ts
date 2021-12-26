@@ -1,2 +1,2 @@
-export * from './bible';
+export * from './qt-content';
 export * from './users';

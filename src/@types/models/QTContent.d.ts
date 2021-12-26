@@ -1,14 +1,26 @@
 declare module '@types' {
-	interface QTContent {
+	interface IQTContent {
+		contentType: ContentType;
 		title: string;
 		date: string;
-		range: string;
-		verses: Verse[];
+		range: {
+			text: string;
+			book: string;
+			start: { capter: number; verse: number };
+			end: { caper: number; verse: number };
+		};
+		verses: IVerse[];
 		commentaries: string[];
 	}
 
-	interface Verse {
+	interface IVerse {
+		capter?: number;
 		verse?: number;
 		text: string;
+	}
+
+	interface SearchQTContentDTO {
+		contentType: ContentType;
+		date?: string;
 	}
 }

@@ -3,11 +3,27 @@
 </script>
 
 <script lang="ts">
+	import moment from 'moment';
 	import { onMount } from 'svelte';
-	import { contents } from '$lib/mockup';
 	import { onToast } from '../components/Toast.svelte';
+	import { loadingHandler } from '../components/Loading.svelte';
+	import { db } from '$lib/db';
+	import { links } from '$lib/mockup';
+	import type { ContentType, IQTContent } from '@types';
 
-	onMount(async () => {});
+	let qtcontent: IQTContent;
+	let contentType: ContentType;
+
+	onMount(async () => {
+		loadQTContent(localStorage.getItem('contentType') || '생명의삶');
+	});
+
+	const loadQTContent = loadingHandler(async (type: ContentType) => {
+		const { data, message } = await db.getQTContent({ contentType: type });
+		if (!!message) return onToast(message);
+		contentType = type;
+		qtcontent = data;
+	});
 
 	const copyToClipboard = async (val: string) => {
 		try {
@@ -24,42 +40,44 @@
 	<title>성경묵상</title>
 </svelte:head>
 
-<section>
-	<header>
-		<h2>{contents.date}</h2>
-		<h1>{contents.title}</h1>
+{#if qtcontent}
+	<section>
+		<header>
+			<h2><a target="_blank" href={links[contentType]}>{contentType}</a></h2>
+			<h2>{moment(qtcontent.date).format('YYYY.MM.DD ( dddd )')}</h2>
+			<h1>{qtcontent.title}</h1>
+			<h2>{qtcontent.range.text}</h2>
+		</header>
 
-		<h2>{contents.range}</h2>
-	</header>
+		<div class="bible">
+			{#each qtcontent.verses as { verse, text }}
+				{#if !verse}
+					<h5>{text}</h5>
+				{:else}
+					<div on:click={() => copyToClipboard(text)}>
+						<span>{verse}</span>
+						<p>{text}</p>
+					</div>
+				{/if}
+			{/each}
+		</div>
+	</section>
 
-	<div class="bible">
-		{#each contents.verses as { verse, text }}
-			{#if !verse}
-				<h5>{text}</h5>
-			{:else}
-				<div on:click={() => copyToClipboard(text)}>
-					<span>{verse}</span>
-					<p>{text}</p>
-				</div>
-			{/if}
-		{/each}
-	</div>
-</section>
-
-<section>
-	<header>
-		<h1>본문해설</h1>
-	</header>
-	<div class="bible">
-		{#each contents.commentaries as text}
-			{#if text.length > 30}
-				<pre>{text}</pre>
-			{:else}
-				<h5>{text}</h5>
-			{/if}
-		{/each}
-	</div>
-</section>
+	<section>
+		<header>
+			<h1>본문해설</h1>
+		</header>
+		<div class="bible">
+			{#each qtcontent.commentaries as text}
+				{#if text.length > 30}
+					<pre>{text}</pre>
+				{:else if text.length > 2}
+					<h5>{text}</h5>
+				{/if}
+			{/each}
+		</div>
+	</section>
+{/if}
 
 <style>
 	section {
