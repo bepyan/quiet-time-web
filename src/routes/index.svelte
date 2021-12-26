@@ -8,7 +8,7 @@
 	import { onToast } from '../components/Toast.svelte';
 	import { loadingHandler } from '../components/Loading.svelte';
 	import { db } from '$lib/db';
-	import { links } from '$lib/mockup';
+	import { links, contentTypeList } from '$lib/mockup';
 	import type { ContentType, IQTContent } from '@types';
 
 	let qtcontent: IQTContent;
@@ -17,6 +17,11 @@
 	onMount(async () => {
 		loadQTContent(localStorage.getItem('contentType') || '생명의삶');
 	});
+
+	const setContentType = (type: ContentType) => {
+		localStorage.setItem('contentType', type);
+		loadQTContent(type);
+	};
 
 	const loadQTContent = loadingHandler(async (type: ContentType) => {
 		const { data, message } = await db.getQTContent({ contentType: type });
@@ -40,11 +45,19 @@
 	<title>성경묵상</title>
 </svelte:head>
 
+<section class="nav">
+	{#each contentTypeList as value}
+		<p class={`btn ${value === contentType && 'selected'}`} on:click={() => setContentType(value)}>
+			{value}
+		</p>
+	{/each}
+</section>
+
 {#if qtcontent}
 	<section>
 		<header>
-			<h2><a target="_blank" href={links[contentType]}>{contentType}</a></h2>
-			<h2>{moment(qtcontent.date).format('YYYY.MM.DD ( dddd )')}</h2>
+			<h2><a target="_blank" href={links[contentType]}>출처</a></h2>
+			<h2>{moment(qtcontent.date).format('YYYY.MM.DD ( ddd )')}</h2>
 			<h1>{qtcontent.title}</h1>
 			<h2>{qtcontent.range.text}</h2>
 		</header>
@@ -91,6 +104,21 @@
 	header {
 		padding: 3rem;
 		border-bottom: 1px solid #eeeeee;
+	}
+
+	.nav {
+		padding: 1rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	.nav p {
+		padding: 1rem;
+		color: black;
+	}
+	.nav .selected {
+		color: var(--accent-color);
 	}
 
 	.bible {
