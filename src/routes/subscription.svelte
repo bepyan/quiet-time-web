@@ -1,7 +1,3 @@
-<script context="module">
-	export const prerender = true;
-</script>
-
 <script lang="ts">
 	import RegisterCard from '../templates/RegisterCard.svelte';
 	import SubscriptionCard from '../templates/SubscriptionCard.svelte';

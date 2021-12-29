@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { db } from '$lib/db';
-	import { loadingHandler } from '../components/Loading.svelte';
 	import { scrollToSubscriptionCard } from './SubscriptionCard.svelte';
 	import { links } from '$lib/mockup';
-	import { toast } from '$lib/store';
+	import { loading, toast } from '$lib/store';
 
-	const onSubscript = loadingHandler(async (e) => {
+	const onSubscript = loading.handle(async (e) => {
 		const name: string = e.target.uname.value;
 		const notion_auth: string = e.target.notion_auth.value;
 		if (!name || !notion_auth) return toast.onToast('빈칸을 채워주세요.');
