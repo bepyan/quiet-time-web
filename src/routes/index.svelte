@@ -8,22 +8,44 @@
 	import { getKoDay } from '$lib/moment';
 
 	let qtcontent: IQTContent;
+	let qtcontentsCeche: IQTContent[];
 	let contentType: ContentType;
 
 	onMount(async () => {
-		loadQTContent(localStorage.getItem('contentType') || '생명의삶');
+		qtcontentsCeche = JSON.parse(sessionStorage.getItem('qtcontents')) || [];
+		contentType = (localStorage.getItem('contentType') as ContentType) || '생명의삶';
+
+		if (!loadIfCacheContent()) {
+			loadQTContent();
+		}
 	});
 
 	const setContentType = (type: ContentType) => {
 		localStorage.setItem('contentType', type);
-		loadQTContent(type);
+		contentType = type;
+
+		if (!loadIfCacheContent()) {
+			loadQTContent();
+		}
 	};
 
-	const loadQTContent = loading.handle(async (type: ContentType) => {
-		const { data, message } = await db.getQTContent({ contentType: type });
+	const loadIfCacheContent = () => {
+		const target = qtcontentsCeche.find(
+			(e) =>
+				moment.duration(moment(e.date).diff(moment())).asDays() && e.contentType === contentType
+		);
+		if (!target) return false;
+
+		qtcontent = target;
+		return true;
+	};
+
+	const loadQTContent = loading.handle(async () => {
+		const { data, message } = await db.getQTContent({ contentType });
 		if (!!message) return toast.onToast(message);
-		contentType = type;
 		qtcontent = data;
+		qtcontentsCeche = [...qtcontentsCeche, data];
+		sessionStorage.setItem('qtcontents', JSON.stringify(qtcontentsCeche));
 	});
 
 	const copyToClipboard = async ({ capter, verse, text }: IVerse) => {

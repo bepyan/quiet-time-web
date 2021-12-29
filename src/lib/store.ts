@@ -61,7 +61,7 @@ const setLoading = () => {
 
 	return {
 		subscribe,
-		handle: (fn) => async (e) => {
+		handle: (fn) => async (e?: unknown) => {
 			try {
 				set(true);
 				await fn(e);
