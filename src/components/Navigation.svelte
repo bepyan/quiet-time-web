@@ -4,17 +4,17 @@
 
 	let scrollY = 0;
 	let offsetY = 0;
-	let isHide = false;
+	let hide = false;
 
 	$: {
-		isHide = scrollY - offsetY > 0;
+		hide = scrollY - offsetY > 0;
 		offsetY = scrollY;
 	}
 </script>
 
 <svelte:window bind:scrollY />
 
-<nav class={isHide && 'hide'}>
+<nav class:hide>
 	<ul>
 		<li class:active={$page.path === '/setting'}>
 			<a sveltekit:prefetch href="{base}/setting">설정</a>
