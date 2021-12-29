@@ -8,8 +8,10 @@
 	import { onToast } from '../components/Toast.svelte';
 	import { loadingHandler } from '../components/Loading.svelte';
 	import { db } from '$lib/db';
+	import { copyTemplete } from '$lib/store';
 	import { links, contentTypeList } from '$lib/mockup';
-	import type { ContentType, IQTContent } from '@types';
+	import type { ContentType, IQTContent, IVerse } from '@types';
+	import { getKoDay } from '$lib/moment';
 
 	let qtcontent: IQTContent;
 	let contentType: ContentType;
@@ -30,9 +32,16 @@
 		qtcontent = data;
 	});
 
-	const copyToClipboard = async (val: string) => {
+	const copyToClipboard = async ({ capter, verse, text }: IVerse) => {
 		try {
-			await navigator.clipboard.writeText(val);
+			const templete = copyTemplete.transferTemplete({
+				contentType,
+				book: qtcontent.range.book,
+				capter,
+				verse,
+				text
+			});
+			await navigator.clipboard.writeText(templete);
 			onToast('클립보드에 복사 완료', 1000);
 		} catch (e) {
 			onToast('[오류] 복사 실패');
@@ -57,17 +66,17 @@
 	<section>
 		<header>
 			<h2><a target="_blank" href={links[contentType]}>출처</a></h2>
-			<h2>{moment(qtcontent.date).format('YYYY.MM.DD ( ddd )')}</h2>
+			<h2>{moment(qtcontent.date).format('YYYY.MM.DD')} ({getKoDay()})</h2>
 			<h1>{qtcontent.title}</h1>
 			<h2>{qtcontent.range.text}</h2>
 		</header>
 
 		<div class="bible">
-			{#each qtcontent.verses as { verse, text }}
+			{#each qtcontent.verses as { capter, verse, text }}
 				{#if !verse}
 					<h5>{text}</h5>
 				{:else}
-					<div on:click={() => copyToClipboard(text)}>
+					<div on:click={() => copyToClipboard({ capter, verse, text })}>
 						<span>{verse}</span>
 						<p>{text}</p>
 					</div>

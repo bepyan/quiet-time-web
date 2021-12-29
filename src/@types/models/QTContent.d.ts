@@ -23,4 +23,12 @@ declare module '@types' {
 		contentType: ContentType;
 		date?: string;
 	}
+
+	interface ICopyTemplete {
+		contentType: ContentType;
+		book: string;
+		capter: number;
+		verse: number;
+		text: string;
+	}
 }
