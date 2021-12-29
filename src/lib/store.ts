@@ -6,15 +6,17 @@ import { getKoDay } from './moment';
 const DefaultCopyTemplete = '`월`/`일` (`요일`) `QT책`\n\n`본문`\n`책` `장`:`절`';
 
 const setCopyTemplete = () => {
-	const { subscribe, set } = writable(localStorage.getItem('copyTemplete') || DefaultCopyTemplete);
+	const { subscribe, set } = writable(localStorage?.getItem('copyTemplete') || DefaultCopyTemplete);
+
+	const setValue = (value) => {
+		localStorage.setItem('copyTemplete', value);
+		set(value);
+	};
 
 	return {
 		subscribe,
-		keyup: (value) => {
-			localStorage.setItem('copyTemplete', value);
-			set(value);
-		},
-		reset: () => set(DefaultCopyTemplete),
+		keyup: (value) => setValue(value),
+		reset: () => setValue(DefaultCopyTemplete),
 		transferTemplete: (
 			{ book, capter, contentType, verse, text }: ICopyTemplete,
 			templete?: string
@@ -37,3 +39,17 @@ const setCopyTemplete = () => {
 };
 
 export const copyTemplete = setCopyTemplete();
+
+const setToast = () => {
+	const { subscribe, set } = writable({ show: false, text: '' });
+
+	return {
+		subscribe,
+		onToast: (text: string, time = 3000) => {
+			set({ show: true, text });
+			setTimeout(() => set({ show: false, text }), time);
+		}
+	};
+};
+
+export const toast = setToast();

@@ -1,20 +1,20 @@
 <script lang="ts">
 	import { db } from '$lib/db';
-	import { onToast } from '../components/Toast.svelte';
 	import { loadingHandler } from '../components/Loading.svelte';
 	import { scrollToSubscriptionCard } from './SubscriptionCard.svelte';
 	import { links } from '$lib/mockup';
+	import { toast } from '$lib/store';
 
 	const onSubscript = loadingHandler(async (e) => {
 		const name: string = e.target.uname.value;
 		const notion_auth: string = e.target.notion_auth.value;
-		if (!name || !notion_auth) return onToast('빈칸을 채워주세요.');
+		if (!name || !notion_auth) return toast.onToast('빈칸을 채워주세요.');
 
 		const { message } = await db.registerUser({ name, notion_auth });
-		if (message) return onToast(message);
+		if (message) return toast.onToast(message);
 
 		e.target.reset();
-		onToast('가입을 성공했습니다 😘');
+		toast.onToast('가입을 성공했습니다 😘');
 		scrollToSubscriptionCard(name);
 	});
 </script>

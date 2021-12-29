@@ -1,24 +1,13 @@
-<script context="module" lang="ts">
-	let removeToast: NodeJS.Timeout;
-	let toast: HTMLElement;
-
-	export const onToast = (string: string, time = 3000) => {
-		if (toast.classList.contains('show-toast')) {
-			clearTimeout(removeToast);
-		}
-
-		toast.classList.add('show-toast');
-		toast.innerText = string;
-		removeToast = setTimeout(() => {
-			toast.classList.remove('show-toast');
-		}, time);
-	};
+<script lang="ts">
+	import { toast } from '$lib/store';
 </script>
 
-<div id="toast" bind:this={toast} />
+<div class="toast" class:show={$toast.show}>
+	{$toast.text}
+</div>
 
 <style>
-	#toast {
+	.toast {
 		position: fixed;
 		top: 30px;
 		left: 50%;
@@ -33,5 +22,11 @@
 		background: rgba(0, 0, 0, 0.4);
 		color: #fff;
 		z-index: 10000;
+	}
+
+	.show {
+		opacity: 1;
+		visibility: visible;
+		transform: translate(-50%, 0);
 	}
 </style>

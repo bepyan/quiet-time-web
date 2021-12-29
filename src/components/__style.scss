@@ -30,10 +30,5 @@
 	opacity: 1 !important;
 	visibility: visible !important;
 	background-color: #00000050 !important;
-}
-
-.show-toast {
-	opacity: 1 !important;
-	visibility: visible !important;
-	transform: translate(-50%, 0) !important;
+	pointer-events: none;
 }

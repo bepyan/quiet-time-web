@@ -3,7 +3,7 @@
 	import { db } from '$lib/db';
 	import type { INotion, IUser } from '@types';
 	import { loadingHandler } from '../components/Loading.svelte';
-	import { onToast } from '../components/Toast.svelte';
+	import { toast } from '$lib/store';
 
 	let noResult: boolean;
 	let user: IUser | null | undefined = undefined;
@@ -24,7 +24,7 @@
 		if (message) return alert(message);
 
 		await onSearch(user.name);
-		onToast('성공적으로 탈퇴되었습니다.');
+		toast.onToast('성공적으로 탈퇴되었습니다.');
 	});
 
 	const onDeleteSubscription = loadingHandler(async (notion: INotion) => {
@@ -32,7 +32,7 @@
 		if (message) return alert(message);
 
 		await onSearch(user.name);
-		onToast('구독이 취소되었습니다.');
+		toast.onToast('구독이 취소되었습니다.');
 	});
 </script>
 

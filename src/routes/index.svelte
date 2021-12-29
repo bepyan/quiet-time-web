@@ -5,10 +5,9 @@
 <script lang="ts">
 	import moment from 'moment';
 	import { onMount } from 'svelte';
-	import { onToast } from '../components/Toast.svelte';
 	import { loadingHandler } from '../components/Loading.svelte';
 	import { db } from '$lib/db';
-	import { copyTemplete } from '$lib/store';
+	import { copyTemplete, toast } from '$lib/store';
 	import { links, contentTypeList } from '$lib/mockup';
 	import type { ContentType, IQTContent, IVerse } from '@types';
 	import { getKoDay } from '$lib/moment';
@@ -27,7 +26,7 @@
 
 	const loadQTContent = loadingHandler(async (type: ContentType) => {
 		const { data, message } = await db.getQTContent({ contentType: type });
-		if (!!message) return onToast(message);
+		if (!!message) return toast.onToast(message);
 		contentType = type;
 		qtcontent = data;
 	});
@@ -42,9 +41,9 @@
 				text
 			});
 			await navigator.clipboard.writeText(templete);
-			onToast('클립보드에 복사 완료', 1000);
+			toast.onToast('클립보드에 복사 완료', 1000);
 		} catch (e) {
-			onToast('[오류] 복사 실패');
+			toast.onToast('[오류] 복사 실패');
 			console.log(e);
 		}
 	};

@@ -11,8 +11,8 @@
 <script lang="ts">
 	import { db } from '$lib/db';
 	import { contentTypeList, links } from '$lib/mockup';
+	import { toast } from '$lib/store';
 	import type { ContentType } from '@types';
-	import { onToast } from '../components/Toast.svelte';
 	import { loadingHandler } from '../components/Loading.svelte';
 	import RadioButton from '../components/RadioButton.svelte';
 
@@ -22,12 +22,12 @@
 		const name: string = e.target.uname.value;
 		const page_id: string = e.target.page_id.value;
 		const contentType: ContentType = e.target.contentType.value;
-		if (!name || !page_id || !contentType) return onToast('빈칸을 채워주세요.');
+		if (!name || !page_id || !contentType) return toast.onToast('빈칸을 채워주세요.');
 
 		const { message } = await db.registerNotion({ name, page_id, contentType });
-		if (!!message) return onToast(message);
+		if (!!message) return toast.onToast(message);
 
-		onToast('구독이 완료되었습니다 🥰');
+		toast.onToast('구독이 완료되었습니다 🥰');
 		isDone = true;
 
 		await new Promise((e) => setTimeout(e, 300));

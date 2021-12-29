@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-	import { copyTemplete } from '$lib/store';
+	import { copyTemplete, toast } from '$lib/store';
 	import { onMount } from 'svelte';
 
 	let textarea: HTMLTextAreaElement;
@@ -37,12 +37,13 @@
 
 	const onSave = () => {
 		copyTemplete.keyup(input);
-		alert('성공적으로 저장되었습니다.');
+		toast.onToast('성공적으로 저장되었습니다.');
 	};
 
 	const onReset = () => {
 		copyTemplete.reset();
 		input = $copyTemplete;
+		toast.onToast('설정이 리셋되었습니다.');
 	};
 </script>
 
