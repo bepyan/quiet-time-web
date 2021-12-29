@@ -8,6 +8,18 @@
 
 	let textarea: HTMLTextAreaElement;
 	let input = $copyTemplete;
+	let exampleText: string;
+
+	$: exampleText = copyTemplete.transferTemplete(
+		{
+			contentType: '생명의삶',
+			book: '욥기',
+			capter: 34,
+			verse: 21,
+			text: '그는 사람의 길을 주목하시며 사람의 모든 걸음을 감찰하시나니'
+		},
+		input
+	);
 
 	onMount(() => {
 		resize();
@@ -25,6 +37,7 @@
 
 	const onSave = () => {
 		copyTemplete.keyup(input);
+		alert('성공적으로 저장되었습니다.');
 	};
 
 	const onReset = () => {
@@ -65,7 +78,7 @@
 		<label for="pre">
 			미리보기
 			<pre>
-				그는 사람의 길을 주목하시며 사람의 모든 걸음을 감찰하시나니
+				{exampleText}
 			</pre>
 		</label>
 	</section>

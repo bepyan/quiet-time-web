@@ -15,10 +15,13 @@ const setCopyTemplete = () => {
 			set(value);
 		},
 		reset: () => set(DefaultCopyTemplete),
-		transferTemplete: ({ book, capter, contentType, verse, text }: ICopyTemplete) => {
-			const _copyTemplete = get(copyTemplete);
+		transferTemplete: (
+			{ book, capter, contentType, verse, text }: ICopyTemplete,
+			templete?: string
+		) => {
+			const _copyTemplete = templete || get(copyTemplete);
 
-			const templete = _copyTemplete
+			const result = _copyTemplete
 				.replace('`월`', moment().format('MM'))
 				.replace('`일`', moment().format('DD'))
 				.replace('`요일`', getKoDay())
@@ -28,7 +31,7 @@ const setCopyTemplete = () => {
 				.replace('`장`', capter + '')
 				.replace('`절`', verse + '');
 
-			return templete;
+			return result;
 		}
 	};
 };
