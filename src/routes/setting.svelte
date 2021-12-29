@@ -2,6 +2,37 @@
 	export const prerender = true;
 </script>
 
+<script lang="ts">
+	import { copyTemplete } from '$lib/store';
+	import { onMount } from 'svelte';
+
+	let textarea: HTMLTextAreaElement;
+	let input = $copyTemplete;
+
+	onMount(() => {
+		resize();
+	});
+
+	const resize = () => {
+		textarea.style.height = 'auto';
+		textarea.style.height = textarea.scrollHeight + 'px';
+	};
+
+	const onKeyup = (e) => {
+		input = e.target.value;
+		resize();
+	};
+
+	const onSave = () => {
+		copyTemplete.keyup(input);
+	};
+
+	const onReset = () => {
+		copyTemplete.reset();
+		input = $copyTemplete;
+	};
+</script>
+
 <svelte:head>
 	<title>성경묵상 | 설정</title>
 </svelte:head>
@@ -22,9 +53,12 @@
 	<section>
 		<label for="text">
 			클립보드 복사 형태
-			<textarea id="text" />
+			<textarea id="text" bind:this={textarea} value={input} on:keyup={onKeyup} />
 		</label>
-		<button>저장</button>
+		<div class="btnSet">
+			<button class="secondBtn" on:click={onReset}>리셋</button>
+			<button on:click={onSave}>저장</button>
+		</div>
 	</section>
 
 	<section>
@@ -38,7 +72,17 @@
 </div>
 
 <style>
-	button {
-		margin-left: auto;
+	textarea {
+		height: auto;
+	}
+
+	.btnSet {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	.btnSet > * {
+		margin-left: 1rem;
 	}
 </style>

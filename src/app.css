@@ -8,6 +8,8 @@
 	--background-color: #f8f8f8;
 	--accent-color: #ff3e00;
 	--accent-background: #ff3e0015;
+	--second-color: #999999;
+	--second-background: #99999930;
 	--heading-color: rgba(0, 0, 0, 0.7);
 	--text-color: #444444;
 	--grey: #e8e8e8;
@@ -135,6 +137,15 @@ button {
 
 button:hover {
 	box-shadow: var(--accent-background) 0px 5px 32px;
+}
+
+.secondBtn {
+	color: var(--second-color);
+	border: 1px solid var(--second-color);
+}
+
+.secondBtn:hover {
+	box-shadow: var(--second-background) 0px 5px 32px;
 }
 
 input,
