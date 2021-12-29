@@ -6,7 +6,9 @@ import { getKoDay } from './moment';
 const DefaultCopyTemplete = '`월`/`일` (`요일`) `QT책`\n\n`본문`\n`책` `장`:`절`';
 
 const setCopyTemplete = () => {
-	const { subscribe, set } = writable(localStorage?.getItem('copyTemplete') || DefaultCopyTemplete);
+	const { subscribe, set } = writable(
+		(typeof window !== 'undefined' && localStorage.getItem('copyTemplete')) || DefaultCopyTemplete
+	);
 
 	const setValue = (value) => {
 		localStorage.setItem('copyTemplete', value);
@@ -53,3 +55,21 @@ const setToast = () => {
 };
 
 export const toast = setToast();
+
+const setLoading = () => {
+	const { subscribe, set } = writable(false);
+
+	return {
+		subscribe,
+		handle: (fn) => async (e) => {
+			try {
+				set(true);
+				await fn(e);
+			} finally {
+				set(false);
+			}
+		}
+	};
+};
+
+export const loading = setLoading();

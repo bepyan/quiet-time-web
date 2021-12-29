@@ -1,22 +1,13 @@
-<script context="module" lang="ts">
-	let container: HTMLElement;
-
-	export const loadingHandler = (fn: any) => async (e: any) => {
-		try {
-			container.classList.add('show-loading');
-			await fn(e);
-		} finally {
-			container.classList.remove('show-loading');
-		}
-	};
+<script lang="ts">
+	import { loading } from '$lib/store';
 </script>
 
-<div id="loading" bind:this={container}>
+<div class="backdrop" class:loading={$loading}>
 	<img src="https://www.nyan.cat/cats/xmas.gif" alt="loading" width="200" />
 </div>
 
 <style>
-	#loading {
+	.backdrop {
 		z-index: 999;
 		position: fixed;
 		top: 0;
@@ -29,7 +20,6 @@
 
 		opacity: 0;
 		visibility: hidden;
-		pointer-events: none;
 		background-color: transparent;
 		transition: all 150ms ease-out;
 	}
@@ -40,5 +30,12 @@
 		-moz-user-select: none;
 		-webkit-user-select: none;
 		-ms-user-select: none;
+	}
+
+	.loading {
+		opacity: 1;
+		visibility: visible;
+		background-color: #00000050;
+		pointer-events: none;
 	}
 </style>

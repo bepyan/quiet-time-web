@@ -11,14 +11,13 @@
 <script lang="ts">
 	import { db } from '$lib/db';
 	import { contentTypeList, links } from '$lib/mockup';
-	import { toast } from '$lib/store';
+	import { loading, toast } from '$lib/store';
 	import type { ContentType } from '@types';
-	import { loadingHandler } from '../components/Loading.svelte';
 	import RadioButton from '../components/RadioButton.svelte';
 
 	let isDone = false;
 
-	const onSubscript = loadingHandler(async (e) => {
+	const onSubscript = loading.handle(async (e) => {
 		const name: string = e.target.uname.value;
 		const page_id: string = e.target.page_id.value;
 		const contentType: ContentType = e.target.contentType.value;

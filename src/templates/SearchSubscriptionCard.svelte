@@ -2,13 +2,12 @@
 	import moment from 'moment';
 	import { db } from '$lib/db';
 	import type { INotion, IUser } from '@types';
-	import { loadingHandler } from '../components/Loading.svelte';
-	import { toast } from '$lib/store';
+	import { loading, toast } from '$lib/store';
 
 	let noResult: boolean;
 	let user: IUser | null | undefined = undefined;
 
-	const onSearchSubsciption = loadingHandler(async (e) => {
+	const onSearchSubsciption = loading.handle(async (e) => {
 		const name: string = e.target.uname.value;
 		await onSearch(name);
 	});
@@ -19,7 +18,7 @@
 		noResult = !data;
 	};
 
-	const onDeleteUser = loadingHandler(async () => {
+	const onDeleteUser = loading.handle(async () => {
 		const { message } = await db.deleteUser({ name: user.name });
 		if (message) return alert(message);
 
@@ -27,7 +26,7 @@
 		toast.onToast('성공적으로 탈퇴되었습니다.');
 	});
 
-	const onDeleteSubscription = loadingHandler(async (notion: INotion) => {
+	const onDeleteSubscription = loading.handle(async (notion: INotion) => {
 		const { message } = await db.unsubscriptNotion({ name: user.name, notion });
 		if (message) return alert(message);
 

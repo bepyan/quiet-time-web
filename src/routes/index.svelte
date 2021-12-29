@@ -1,13 +1,8 @@
-<script context="module">
-	export const prerender = true;
-</script>
-
 <script lang="ts">
 	import moment from 'moment';
 	import { onMount } from 'svelte';
-	import { loadingHandler } from '../components/Loading.svelte';
 	import { db } from '$lib/db';
-	import { copyTemplete, toast } from '$lib/store';
+	import { copyTemplete, loading, toast } from '$lib/store';
 	import { links, contentTypeList } from '$lib/mockup';
 	import type { ContentType, IQTContent, IVerse } from '@types';
 	import { getKoDay } from '$lib/moment';
@@ -24,7 +19,7 @@
 		loadQTContent(type);
 	};
 
-	const loadQTContent = loadingHandler(async (type: ContentType) => {
+	const loadQTContent = loading.handle(async (type: ContentType) => {
 		const { data, message } = await db.getQTContent({ contentType: type });
 		if (!!message) return toast.onToast(message);
 		contentType = type;
