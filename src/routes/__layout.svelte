@@ -4,11 +4,19 @@
 	import Navigation from '../components/Navigation.svelte';
 	import Toast from '../components/Toast.svelte';
 	import Loading from '../components/Loading.svelte';
+	import { page } from '$app/stores';
+	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
+
+	let ready = false;
+	onMount(() => (ready = true));
 </script>
 
-<main>
-	<slot />
-</main>
+{#key $page}
+	<main in:fade class:ready>
+		<slot />
+	</main>
+{/key}
 
 <footer>
 	<a target="_blank" href="https://github.com/bepyan">© bepyan</a>
@@ -28,6 +36,12 @@
 		max-width: 1024px;
 		margin: 0 auto;
 		box-sizing: border-box;
+		opacity: 0;
+		transition: opacity 400ms ease-out;
+	}
+
+	.ready {
+		opacity: 1;
 	}
 
 	footer {
