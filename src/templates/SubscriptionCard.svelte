@@ -17,7 +17,6 @@
 	import RadioButton from '../components/RadioButton.svelte';
 
 	let isDone = false;
-	let welcomeCard: HTMLElement;
 
 	const onSubscript = loadingHandler(async (e) => {
 		const name: string = e.target.uname.value;
@@ -36,7 +35,9 @@
 	});
 
 	const scrollToSubscriptionCard = () => {
-		welcomeCard.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+		document
+			.querySelector('footer')
+			.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
 	};
 </script>
 
@@ -74,7 +75,7 @@
 </form>
 
 {#if isDone}
-	<div class="card welcome-card" bind:this={welcomeCard}>
+	<div class="card welcome-card">
 		<header>
 			<h1>환영합니다</h1>
 		</header>
