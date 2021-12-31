@@ -16,7 +16,7 @@
 		contentType = (localStorage.getItem('contentType') as ContentType) || '생명의삶';
 
 		if (!loadIfCacheContent()) {
-			loadQTContent();
+			await loadQTContent();
 		}
 	});
 
@@ -125,6 +125,11 @@
 		background-color: white;
 		margin-bottom: 4rem;
 	}
+	@media (max-width: 720px) {
+		section {
+			margin-bottom: 2rem;
+		}
+	}
 
 	header {
 		padding: 3rem;
@@ -178,7 +183,11 @@
 			padding: 1rem;
 		}
 		.bible {
-			padding: 2rem 0.5rem 2rem 0.5rem;
+			padding: 1rem 0rem;
+		}
+		.nav p {
+			writing-mode: vertical-rl;
+			text-orientation: upright;
 		}
 	}
 </style>

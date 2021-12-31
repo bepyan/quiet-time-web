@@ -96,6 +96,7 @@ h1 {
 }
 
 h2 {
+	line-height: 1.5;
 	font-size: 1rem;
 }
 
@@ -110,7 +111,8 @@ pre {
 	font-size: 16px;
 	font-family: 'Nanum Myeongjo';
 	border-radius: 10px;
-	padding: 0.5em;
+	border: 1px solid var(--grey);
+	padding: 2rem;
 	color: var(--text-color);
 	white-space: pre-wrap;
 	line-height: 1.7;
@@ -174,21 +176,21 @@ textarea:focus {
 	border-color: var(--accent-color);
 }
 
-pre {
-	padding: 2rem;
-	border: 1px solid var(--grey);
-}
-
-@media (min-width: 720px) {
-	h1 {
-		font-size: 2.4rem;
-	}
-}
-
 ::-webkit-scrollbar {
 	display: none;
 }
 
 textarea::-webkit-scrollbar {
 	display: initial;
+}
+
+@media (max-width: 720px) {
+	h1 {
+		font-size: 1.7rem;
+	}
+
+	pre {
+		padding: 1rem;
+		margin: 0.75rem;
+	}
 }

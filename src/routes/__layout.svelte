@@ -39,6 +39,11 @@
 		opacity: 0;
 		transition: opacity 400ms ease-out;
 	}
+	@media (max-width: 720px) {
+		main {
+			padding: 0rem;
+		}
+	}
 
 	.ready {
 		opacity: 1;
