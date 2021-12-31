@@ -196,6 +196,7 @@
 		.nav p {
 			writing-mode: vertical-rl;
 			text-orientation: upright;
+			letter-spacing: 2px;
 		}
 	}
 </style>
