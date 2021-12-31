@@ -39,11 +39,6 @@
 		opacity: 0;
 		transition: opacity 400ms ease-out;
 	}
-	@media (max-width: 720px) {
-		main {
-			padding: 0rem;
-		}
-	}
 
 	.ready {
 		opacity: 1;
@@ -56,5 +51,13 @@
 	}
 	footer > a {
 		color: rgba(0, 0, 0, 0.7);
+	}
+
+	@media (max-width: 720px) {
+		main {
+			padding: 0rem;
+			box-sizing: border-box;
+			width: 90%;
+		}
 	}
 </style>

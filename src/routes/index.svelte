@@ -153,10 +153,10 @@
 
 	.bible {
 		margin-top: 1rem;
-		padding: 3rem;
+		padding: 0rem 3rem 3rem 3rem;
 	}
 	.bible > :first-of-type {
-		margin-top: 0rem;
+		margin-top: 2rem;
 	}
 	.bible > div {
 		display: flex;
@@ -165,13 +165,21 @@
 		border-radius: 1rem;
 		transition: all 200ms ease-in-out;
 	}
-	.bible > div:hover {
+
+	.bible > div:active {
 		background: #eeeeee;
 	}
 
+	@media (hover: hover) {
+		.bible > div:hover {
+			background: #eeeeee;
+		}
+	}
+
 	h5 {
-		margin-left: 1rem;
+		box-sizing: border-box;
 		margin-top: 3rem;
+		padding: 0rem 1rem;
 	}
 
 	span {

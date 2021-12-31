@@ -7,7 +7,7 @@
 	let hide = false;
 
 	$: {
-		hide = scrollY - offsetY > 0;
+		hide = scrollY > 0 && scrollY - offsetY > 0;
 		offsetY = scrollY;
 	}
 </script>
