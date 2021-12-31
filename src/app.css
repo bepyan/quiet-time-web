@@ -22,6 +22,7 @@ body {
 	min-height: 100vh;
 	margin: 0;
 	background-color: var(--background-color);
+	-webkit-tap-highlight-color: transparent;
 }
 
 body::before {
@@ -63,17 +64,22 @@ a {
 	text-decoration: none;
 	transition: text-shadow 100ms ease-out;
 }
-a:hover {
-	text-shadow: 1px 1px 32px var(--accent-color);
-}
 
 .btn {
 	cursor: pointer;
 	color: var(--accent-color);
 	transition: text-shadow 100ms ease-out;
 }
-.btn:hover {
-	text-shadow: 1px 1px 32px var(--accent-color);
+a:active {
+	background-color: transparent;
+}
+@media (hover: hover) {
+	a:hover {
+		text-shadow: 1px 1px 32px var(--accent-color);
+	}
+	.btn:hover {
+		text-shadow: 1px 1px 32px var(--accent-color);
+	}
 }
 
 h1,
@@ -135,17 +141,18 @@ button {
 	min-width: 100px;
 }
 
-button:hover {
-	box-shadow: var(--accent-background) 0px 5px 32px;
-}
-
 .secondBtn {
 	color: var(--second-color);
 	border: 1px solid var(--second-color);
 }
 
-.secondBtn:hover {
-	box-shadow: var(--second-background) 0px 5px 32px;
+@media (hover: hover) {
+	button:hover {
+		box-shadow: var(--accent-background) 0px 5px 32px;
+	}
+	.secondBtn:hover {
+		box-shadow: var(--second-background) 0px 5px 32px;
+	}
 }
 
 input,
