@@ -9,6 +9,7 @@
 
 	const onSearchSubsciption = loading.handle(async (e) => {
 		const name: string = e.target.uname.value;
+		if (!name) return toast.onToast('아이디를 입력해주세요.');
 		await onSearch(name);
 	});
 
