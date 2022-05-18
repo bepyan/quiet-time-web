@@ -2,6 +2,7 @@ import type { ContentType } from '@types';
 
 export const contentTypeList: ContentType[] = [
 	'생명의삶',
+	'생명의삶 우리말',
 	'매일성경',
 	'매일성경 순',
 	'매일성경 영어',

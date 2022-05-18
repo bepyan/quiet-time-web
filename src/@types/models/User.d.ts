@@ -1,5 +1,5 @@
 declare module '@types' {
-	type ContentType = '생명의삶' | '매일성경' | '매일성경 순' | '매일성경 청소년' | '매일성경 영어';
+	type ContentType = '생명의삶' | '생명의삶 우리말' | '매일성경' | '매일성경 순' | '매일성경 청소년' | '매일성경 영어';
 
 	/* ---------------- DTO ---------------- */
 	interface UserDTO {
