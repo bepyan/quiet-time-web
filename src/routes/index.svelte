@@ -191,8 +191,12 @@
 			padding: 1rem;
 		}
 		.bible {
-			padding: 1rem 0rem;
+			padding: 1rem 0.5rem;
 		}
+		.bible > div {
+			padding: 0.75rem;
+		}
+
 		.nav p {
 			writing-mode: vertical-rl;
 			text-orientation: upright;

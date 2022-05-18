@@ -57,7 +57,7 @@
 		main {
 			padding: 0rem;
 			box-sizing: border-box;
-			width: 90%;
+			width: 95%;
 		}
 	}
 </style>
