@@ -1,4 +1,4 @@
-export const contentTypeList = ['생명의삶', '매일성경'] as const;
+export const contentTypeList = ['생명의삶', '매일성경', '매일성경 순', '매일성경 영어'] as const;
 
 export type ContentType = typeof contentTypeList[number];
 
