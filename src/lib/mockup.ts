@@ -1,13 +1,6 @@
-import type { ContentType } from '@types';
+export const contentTypeList = ['생명의삶', '매일성경'] as const;
 
-export const contentTypeList: ContentType[] = [
-	'생명의삶',
-	'생명의삶 우리말',
-	'매일성경',
-	'매일성경 순',
-	'매일성경 영어',
-	'매일성경 청소년'
-];
+export type ContentType = typeof contentTypeList[number];
 
 export const links = {
 	노션통합등록: 'https://www.notion.so/my-integrations',

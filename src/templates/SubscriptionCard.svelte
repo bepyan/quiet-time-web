@@ -10,9 +10,8 @@
 
 <script lang="ts">
 	import { db } from '$lib/db';
-	import { contentTypeList, links } from '$lib/mockup';
+	import { ContentType, contentTypeList, links } from '$lib/mockup';
 	import { loading, toast } from '$lib/store';
-	import type { ContentType } from '@types';
 	import RadioButton from '../components/RadioButton.svelte';
 
 	let isDone = false;

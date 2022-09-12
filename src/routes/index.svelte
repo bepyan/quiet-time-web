@@ -3,8 +3,8 @@
 	import { onMount } from 'svelte';
 	import { db } from '$lib/db';
 	import { copyTemplete, loading, toast } from '$lib/store';
-	import { links, contentTypeList } from '$lib/mockup';
-	import type { ContentType, IQTContent, IVerse } from '@types';
+	import { links, contentTypeList, ContentType } from '$lib/mockup';
+	import type { IQTContent, IVerse } from '@types';
 	import { getKoDay } from '$lib/moment';
 
 	let qtcontent: IQTContent;
