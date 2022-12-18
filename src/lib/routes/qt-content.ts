@@ -1,6 +1,6 @@
 import type { ContentType } from '$lib/mockup';
-import type { IQTContent } from '@types';
-import onAxios from '../onAxios';
+import { fetchDailyBible } from './daily-bible';
+import { fetchLivingLife } from './living-life';
 
 export const getQTContent = ({ contentType }: { contentType: ContentType }) => {
 	if (contentType === '생명의삶') {
@@ -14,19 +14,10 @@ export const getQTContent = ({ contentType }: { contentType: ContentType }) => {
 	}
 };
 
-export const get생명의삶 = () => {
-	return onAxios<IQTContent>({
-		url: `/living-life`,
-		method: 'GET'
-	});
+export const get생명의삶 = (bibleType = '개역개정' as const) => {
+	return fetchLivingLife({ bibleType });
 };
 
-export const get매일성경 = (bible = '기본') => {
-	return onAxios<IQTContent>({
-		url: `/daily-bible`,
-		method: 'GET',
-		params: {
-			bible
-		}
-	});
+export const get매일성경 = (bibleType: any = '기본') => {
+	return fetchDailyBible({ bibleType });
 };
