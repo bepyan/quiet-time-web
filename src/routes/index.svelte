@@ -41,8 +41,9 @@
 	};
 
 	const loadQTContent = loading.handle(async () => {
-		const { data, message } = await db.getQTContent({ contentType });
-		if (!!message) return toast.onToast(message);
+		const data = await db.getQTContent({ contentType });
+		// if (!!message) return toast.onToast(message);
+
 		qtcontent = data;
 		qtcontentsCeche = [...qtcontentsCeche, data];
 		sessionStorage.setItem('qtcontents', JSON.stringify(qtcontentsCeche));
