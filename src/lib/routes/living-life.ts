@@ -3,11 +3,11 @@ import type { IQTContent } from '@types';
 import cheerio from 'cheerio';
 import moment from 'moment';
 
-const LINK_생명의삶_해설 = 'https://www.duranno.com/qt/view/explain.asp';
+const LINK_생명의삶_해설 = 'https://cors-anywhere.herokuapp.com/https://www.duranno.com/qt/view/explain.asp';
 
 const 역본 = {
-	개역개정: 'https://www.duranno.com/qt/view/bible.asp?d=k',
-	우리말성경: 'https://www.duranno.com/qt/view/bible.asp?d=w'
+	개역개정: 'https://cors-anywhere.herokuapp.com/https://www.duranno.com/qt/view/bible.asp?d=k',
+	우리말성경: 'https://cors-anywhere.herokuapp.com/https://www.duranno.com/qt/view/bible.asp?d=w'
 };
 
 // ----------------------------------------------------------------

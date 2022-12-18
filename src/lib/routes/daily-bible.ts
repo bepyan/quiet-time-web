@@ -4,7 +4,7 @@ import axios from 'axios';
 import moment from 'moment';
 
 export const _axios: AxiosInstance = axios.create({
-	baseURL: 'https://sum.su.or.kr:8888/Ajax/Bible',
+	baseURL: 'https://cors-anywhere.herokuapp.com/https://sum.su.or.kr:8888/Ajax/Bible',
 	timeout: 10000
 });
 
